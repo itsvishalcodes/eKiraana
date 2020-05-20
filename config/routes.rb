@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 	end
 	resources :dealerpersonalinfos
 
-	root to: "products#index"
+	root to: "dealers#index"
 
 	get "/login" => "customersession#new", as: "login"
 	delete "/logout" => "customersession#destroy", as: "logout"

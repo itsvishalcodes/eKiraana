@@ -27,15 +27,25 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
 
-    respond_to do |format|
+    #respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-        format.json { render :show, status: :created, location: @customer }
-      else
-        format.html { render :new }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+        #format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        #format.json { render :show, status: :created, location: @customer }
+      #else
+        #format.html { render :new }
+        #format.json { render json: @customer.errors, status: :unprocessable_entity }
+        current_user = Customer.find_by(email: params[:customer][:email])
+        password = params[:customer][:password]
       end
+    #end
+
+    if current_user && current_user.authenticate(password)
+      session[:customer_id] = current_user.id
+      redirect_to new_customerpersonalinfo_path, notice: "Logged In"
+    else 
+      redirect_to login_path, alert: "Oops! Wrong Credentials"
     end
+
   end
 
   # PATCH/PUT /customers/1

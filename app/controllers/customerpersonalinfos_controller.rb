@@ -1,11 +1,11 @@
 class CustomerpersonalinfosController < ApplicationController
   before_action :set_customerpersonalinfo, only: [:show, :edit, :update, :destroy]
-  skip_before_action :ensure_login, only: [:new, :create]
+  # skip_before_action :ensure_login, only: [:new, :create]
 
   # GET /customerpersonalinfos
   # GET /customerpersonalinfos.json
   def index
-    @customerpersonalinfos = Customerpersonalinfo.all
+    @customerpersonalinfos = current_user.customerpersonalinfo.all
   end
 
   # GET /customerpersonalinfos/1
@@ -15,7 +15,7 @@ class CustomerpersonalinfosController < ApplicationController
 
   # GET /customerpersonalinfos/new
   def new
-    @customerpersonalinfo = Customerpersonalinfo.new
+    @customerpersonalinfo = current_user.build_customerpersonalinfo
   end
 
   # GET /customerpersonalinfos/1/edit
@@ -25,11 +25,12 @@ class CustomerpersonalinfosController < ApplicationController
   # POST /customerpersonalinfos
   # POST /customerpersonalinfos.json
   def create
-    @customerpersonalinfo = Customerpersonalinfo.new(customerpersonalinfo_params)
+    current_user
+    @customerpersonalinfo = current_user.build_customerpersonalinfo(customerpersonalinfo_params)
 
     respond_to do |format|
       if @customerpersonalinfo.save
-        format.html { redirect_to @customerpersonalinfo, notice: 'Customerpersonalinfo was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Customerpersonalinfo was successfully created.' }
         format.json { render :show, status: :created, location: @customerpersonalinfo }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class CustomerpersonalinfosController < ApplicationController
   def update
     respond_to do |format|
       if @customerpersonalinfo.update(customerpersonalinfo_params)
-        format.html { redirect_to @customerpersonalinfo, notice: 'Customerpersonalinfo was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Customerpersonalinfo was successfully updated.' }
         format.json { render :show, status: :ok, location: @customerpersonalinfo }
       else
         format.html { render :edit }
@@ -65,7 +66,7 @@ class CustomerpersonalinfosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customerpersonalinfo
-      @customerpersonalinfo = Customerpersonalinfo.find(params[:id])
+      @customerpersonalinfo = current_user.customerpersonalinfo.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
