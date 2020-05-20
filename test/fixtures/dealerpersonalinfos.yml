@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shopname: MyString
+  rating: 1
+  phone: 1
+  review: MyString
+  dealer: one
+
+two:
+  shopname: MyString
+  rating: 1
+  phone: 1
+  review: MyString
+  dealer: two

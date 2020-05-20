@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  typeofproduct: MyString
+  tags: MyString
+  dealer: one
+
+two:
+  name: MyString
+  typeofproduct: MyString
+  tags: MyString
+  dealer: two
