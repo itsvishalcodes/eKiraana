@@ -1,0 +1,2 @@
+module CustomerpersonalinfosHelper
+end

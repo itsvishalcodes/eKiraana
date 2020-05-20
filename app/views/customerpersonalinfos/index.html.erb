@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customerpersonalinfos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customerpersonalinfos.each do |customerpersonalinfo| %>
+      <tr>
+        <td><%= customerpersonalinfo.name %></td>
+        <td><%= customerpersonalinfo.phone %></td>
+        <td><%= customerpersonalinfo.address %></td>
+        <td><%= link_to 'Show', customerpersonalinfo %></td>
+        <td><%= link_to 'Edit', edit_customerpersonalinfo_path(customerpersonalinfo) %></td>
+        <td><%= link_to 'Destroy', customerpersonalinfo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customerpersonalinfo', new_customerpersonalinfo_path %>

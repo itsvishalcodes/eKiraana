@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @customerpersonalinfo.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @customerpersonalinfo.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @customerpersonalinfo.address %>
+</p>
+
+<%= link_to 'Edit', edit_customerpersonalinfo_path(@customerpersonalinfo) %> |
+<%= link_to 'Back', customerpersonalinfos_path %>
