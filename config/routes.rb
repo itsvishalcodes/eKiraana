@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   # delete 'customersession/destroy'
   	resources :customersession, only: [:new, :create, :destroy]
 	resources :customers
-	resources :customerpersonalinfos
+	resources :customerpersonalinfos, only: [:new, :create, :edit, :update, :destroy, :show]
 	resources :dealers do
 		resources :products
 	end
 	resources :dealerpersonalinfos
 
-	root to: "dealers#index"
+	root to: "dealerpersonalinfos#index"
 
 	get "/login" => "customersession#new", as: "login"
 	delete "/logout" => "customersession#destroy", as: "logout"

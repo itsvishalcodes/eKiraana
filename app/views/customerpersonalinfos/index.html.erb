@@ -11,16 +11,14 @@
   </thead>
 
   <tbody>
-    <% @customerpersonalinfos.each do |customerpersonalinfo| %>
       <tr>
-        <td><%= customerpersonalinfo.name %></td>
-        <td><%= customerpersonalinfo.phone %></td>
-        <td><%= customerpersonalinfo.address %></td>
-        <td><%= link_to 'Show', customerpersonalinfo %></td>
+        <td><%= @customerpersonalinfos.name %></td>
+        <td><%= @customerpersonalinfos.phone %></td>
+        <td><%= @customerpersonalinfos.address %></td>
+        <td><%= link_to 'Show', customerpersonalinfo_path %></td>
         <td><%= link_to 'Edit', edit_customerpersonalinfo_path(customerpersonalinfo) %></td>
         <td><%= link_to 'Destroy', customerpersonalinfo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
 

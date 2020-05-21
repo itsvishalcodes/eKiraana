@@ -5,7 +5,7 @@ class CustomerpersonalinfosController < ApplicationController
   # GET /customerpersonalinfos
   # GET /customerpersonalinfos.json
   def index
-    @customerpersonalinfos = current_user.customerpersonalinfo.all
+    @customerpersonalinfos = current_user().customerpersonalinfo
   end
 
   # GET /customerpersonalinfos/1
@@ -15,7 +15,7 @@ class CustomerpersonalinfosController < ApplicationController
 
   # GET /customerpersonalinfos/new
   def new
-    @customerpersonalinfo = current_user.build_customerpersonalinfo
+    @customerpersonalinfo = current_user().build_customerpersonalinfo
   end
 
   # GET /customerpersonalinfos/1/edit
@@ -26,7 +26,7 @@ class CustomerpersonalinfosController < ApplicationController
   # POST /customerpersonalinfos.json
   def create
     current_user
-    @customerpersonalinfo = current_user.build_customerpersonalinfo(customerpersonalinfo_params)
+    @customerpersonalinfo = current_user().build_customerpersonalinfo(customerpersonalinfo_params)
 
     respond_to do |format|
       if @customerpersonalinfo.save
@@ -66,7 +66,7 @@ class CustomerpersonalinfosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customerpersonalinfo
-      @customerpersonalinfo = current_user.customerpersonalinfo.find(params[:id])
+      @customerpersonalinfo = current_user.customerpersonalinfo
     end
 
     # Only allow a list of trusted parameters through.
