@@ -1,8 +1,28 @@
-<h1>Login</h1>
-<%= form_for(:customer, url: customersession_index_path) do |f| %>
-	<div class="field"><%= f.label :email %><br/><%=f.text_field :email%></div>
-	<p/>
-	<div class="field"><%= f.label :password %><br/><%= f.password_field :password %></div>
-	<div class="actions"><%= f.submit "Login" %></div>
-	<%= link_to 'Register', new_customer_path %>
-<% end %>
+<div class="space-1"></div>
+<div class="space-1"></div>
+<div class="space-1"></div>
+<div class="login-form-border">
+	<div class="space-1"></div>
+	<div class="space-1"></div>
+	<div class="login-form">
+		<h1 class="login-header">Login</h1>
+		<div class="space-1"></div>
+		<%= form_for(:customer, url: customersession_index_path) do |f| %>
+			<div class="field width-vw"><b><%= f.label :email, class: "label-login" %></b><br/><%=f.text_field :email, class: 'text-field-vw'%></div>
+			<p/>
+			<div class="field width-vw"><b><%= f.label :password, class: "label-login" %></b><br/><%= f.password_field :password, class: 'text-field-vw' %></div>
+			<div class="actions text-align-center login-button"><%= f.submit "Login", class: 'transparent-background no-border display-vertical-center' %></div>
+			
+		<% end %>
+	</div>
+</div>
+<hr>
+<div style="font-size: 12px; color: gray; text-align: center;">New to us?</div>
+<div class="actions text-align-center login-button register-button">
+	<%= link_to 'Register', new_customer_path, class: "text-align-center display-block no-text-decoration" %>
+</div>
+<div class="space-1"></div>
+<div class="space-1"></div>
+<div class="arti-footer">
+
+</div>

@@ -3,10 +3,16 @@ Rails.application.routes.draw do
   # post 'customersession/create'
   # delete 'customersession/destroy'
   	resources :customersession, only: [:new, :create, :destroy]
-	resources :customers
+	resources :customers do
+		resources :cart
+		resources :cpendingorders
+		resources :corders
+	end
 	resources :customerpersonalinfos, only: [:new, :create, :edit, :update, :destroy, :show]
 	resources :dealers do
 		resources :products
+		resources :dpendingorders
+		resources :dorders
 	end
 	resources :dealerpersonalinfos
 

@@ -1,3 +1,90 @@
 // Place all the styles related to the customersession controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.login-form {
+	width: 85%;
+	margin:  auto;
+}
+
+.space-1 {
+	height: 1rem;
+}
+
+.login-form-border {
+	width: 32%;
+	margin: auto;
+	border: 0.5px solid #D1D1D1;
+	border-radius: 8px;
+	box-shadow: 4px 4px 4px 4px #D1D1D1;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.width-vw {
+	width: 100%;
+}
+
+.text-field-vw {
+	width: 100%;
+	background: none;
+	border: 1px solid black;
+	border-radius: 4px;
+}
+
+.display-vertical-center {
+	margin: auto;
+	height: 2.2rem;
+}
+
+.display-block {
+	display: block;
+}
+
+.label-login {
+	margin-bottom: 1px;
+	text-align: left !important;
+}
+
+.login-button {
+	margin: 1rem 0 1rem;
+	background: linear-gradient(to bottom, #ADDFEC, #00C2F8);
+	border-radius: 5px;
+	border: 0.4px solid black;
+	height: 2.2rem;
+}
+
+.register-button {
+	width: 27.2%;
+	margin: 0 auto;
+	background: #e7e9ec !important;
+	border: 1px solid black;
+	height: 1.7rem;
+}
+
+.no-text-decoration:hover {
+	text-decoration: none;
+	color: black;
+}
+
+.login-header {
+	font-size: 1.8rem;
+	font-weight: normal; 	
+}
+
+.transparent-background {
+	background: transparent;
+}
+
+.no-border {
+	border: none;
+}
+
+.arti-footer {
+	width: 140%;
+	margin-left: -20%;
+	height: 40px;
+	background: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.03) 3px,transparent);
+    z-index: 0;
+}
