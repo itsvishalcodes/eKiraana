@@ -6,6 +6,9 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Rating</th>
+      <th>Phone</th>
+      <th>Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,7 +16,11 @@
   <tbody>
     <% @dealers.each do |dealer| %>
       <tr>
-        <td><%= dealer.dealerpersonalinfo %></td>
+        <td><%= dealer.dealerpersonalinfo.try(:shopname) %></td>
+        <td><%= dealer.dealerpersonalinfo.try(:rating) %></td>
+        <td><%= dealer.dealerpersonalinfo.try(:phone) %></td>
+        <td><%= dealer.try(:email) %></td>
+        <%= link_to 'Show', dealer_products_path(dealer) %>
       </tr>
     <% end %>
   </tbody>

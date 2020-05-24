@@ -35,9 +35,9 @@ class DealersController < ApplicationController
       #   format.html { render :new }
       #   format.json { render json: @dealer.errors, status: :unprocessable_entity }
       # end
-      current_dealer = Dealer.find_by(email: params[:dealer][:email])
-      password = params[:dealer][:password]
-    end
+        current_dealer = Dealer.find_by(email: params[:dealer][:email])
+        password = params[:dealer][:password]
+      end
 
     if current_dealer && current_dealer.authenticate(password)
       session[:dealer_id] = current_dealer.id
