@@ -1,10 +1,11 @@
 class DealerpersonalinfosController < ApplicationController
   before_action :set_dealerpersonalinfo, only: [:show, :edit, :update, :destroy]
+  skip_before_action :ensure_login, only: 
 
   # GET /dealerpersonalinfos
   # GET /dealerpersonalinfos.json
   def index
-    @dealerpersonalinfos = Dealerpersonalinfo.all
+    @dealerpersonalinfos = current_dealer().dealerpersonalinfo
   end
 
   # GET /dealerpersonalinfos/1
@@ -14,7 +15,7 @@ class DealerpersonalinfosController < ApplicationController
 
   # GET /dealerpersonalinfos/new
   def new
-    @dealerpersonalinfo = Dealerpersonalinfo.new
+    @dealerpersonalinfo = current_dealer().build_dealerpersonalinfo
   end
 
   # GET /dealerpersonalinfos/1/edit
@@ -24,7 +25,8 @@ class DealerpersonalinfosController < ApplicationController
   # POST /dealerpersonalinfos
   # POST /dealerpersonalinfos.json
   def create
-    @dealerpersonalinfo = Dealerpersonalinfo.new(dealerpersonalinfo_params)
+    current_dealer
+    @dealerpersonalinfo = current_dealer().build_dealerpersonalinfo(dealerpersonalinfo_params)
 
     respond_to do |format|
       if @dealerpersonalinfo.save
@@ -64,7 +66,7 @@ class DealerpersonalinfosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dealerpersonalinfo
-      @dealerpersonalinfo = Dealerpersonalinfo.find(params[:id])
+      @dealerpersonalinfo = current_dealer().dealerpersonalinfo
     end
 
     # Only allow a list of trusted parameters through.

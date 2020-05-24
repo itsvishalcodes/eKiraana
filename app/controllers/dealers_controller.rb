@@ -1,5 +1,6 @@
 class DealersController < ApplicationController
   before_action :set_dealer, only: [:show, :edit, :update, :destroy]
+  skip_before_action :ensure_login, only: [:new, :create]
 
   # GET /dealers
   # GET /dealers.json
@@ -26,14 +27,23 @@ class DealersController < ApplicationController
   def create
     @dealer = Dealer.new(dealer_params)
 
-    respond_to do |format|
+    # respond_to do |format|
       if @dealer.save
-        format.html { redirect_to @dealer, notice: 'Dealer was successfully created.' }
-        format.json { render :show, status: :created, location: @dealer }
-      else
-        format.html { render :new }
-        format.json { render json: @dealer.errors, status: :unprocessable_entity }
-      end
+      #   format.html { redirect_to @dealer, notice: 'Dealer was successfully created.' }
+      #   format.json { render :show, status: :created, location: @dealer }
+      # else
+      #   format.html { render :new }
+      #   format.json { render json: @dealer.errors, status: :unprocessable_entity }
+      # end
+      current_dealer = Dealer.find_by(email: params[:dealer][:email])
+      password = params[:dealer][:password]
+    end
+
+    if current_dealer && current_dealer.authenticate(password)
+      session[:dealer_id] = current_dealer.id
+      redirect_to new_dealerpersonalinfo_path, notice: "Logged In"
+    else
+      redirect_to dealer_login, alert: "Wrong Credentials"
     end
   end
 

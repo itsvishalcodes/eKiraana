@@ -1,0 +1,10 @@
+<h1>Dealer Login</h1>
+<%= form_for(:customer, url: customersession_index_path) do |f| %>
+	<div class="field width-vw"><b><%= f.label :email, class: "label-login" %></b><br/><%=f.text_field :email, class: 'text-field-vw'%></div>
+	<p/>
+	<div class="field width-vw"><b><%= f.label :password, class: "label-login" %></b><br/><%= f.password_field :password, class: 'text-field-vw' %></div>
+	<div class="actions text-align-center login-button"><%= f.submit "Login", class: 'transparent-background no-border display-vertical-center' %></div>
+<% end %>
+<div class="actions">
+	<%= link_to 'Register', new_dealer_path %>
+</div>

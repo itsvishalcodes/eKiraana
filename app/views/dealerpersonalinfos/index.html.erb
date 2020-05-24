@@ -14,21 +14,15 @@
   </thead>
 
   <tbody>
-
-    
-    <%= link_to 'Logout', customersession_path(current_user), method: :delete %>
-
-    <% @dealerpersonalinfos.each do |dealerpersonalinfo| %>
       <tr>
-        <td><%= dealerpersonalinfo.shopname %></td>
-        <td><%= dealerpersonalinfo.rating %></td>
-        <td><%= dealerpersonalinfo.phone %></td>
-        <td><%= dealerpersonalinfo.review %></td>
+        <td><%= @Dealerpersonalinfos.shopname %></td>
+        <td><%= @Dealerpersonalinfos.rating %></td>
+        <td><%= @Dealerpersonalinfos.phone %></td>
+        <td><%= @Dealerpersonalinfos.review %></td>
         <td><%= link_to 'Show', dealerpersonalinfo %></td>
         <td><%= link_to 'Edit', edit_dealerpersonalinfo_path(dealerpersonalinfo) %></td>
         <td><%= link_to 'Destroy', dealerpersonalinfo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
 
