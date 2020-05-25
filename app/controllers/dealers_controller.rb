@@ -41,7 +41,7 @@ class DealersController < ApplicationController
 
     if current_dealer && current_dealer.authenticate(password)
       session[:dealer_id] = current_dealer.id
-      redirect_to new_dealerpersonalinfo_path, notice: "Logged In"
+      redirect_to new_dealerpersonalinfo_path, notice: "Logged In as Dealer"
     else
       redirect_to dealer_login, alert: "Wrong Credentials"
     end

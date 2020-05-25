@@ -9,9 +9,13 @@ class CustomersessionController < ApplicationController
 
   	if current_user && current_user.authenticate(password)
   		session[:customer_id] = current_user.id
-  		redirect_to root_path, notice: "Logged In"
+      if current_user.customerpersonalinfo != nil
+  		  redirect_to root_path, notice: "Logged In"
+      else
+        redirect_to new_customerpersonalinfo_path, alert: "Incomplete Profile! Fill all the details"
+      end
   	else 
-  		redirect_to login_path, alert: "Oops! Wrong Credentials"
+  		redirect_to login_path, alert: "Oops! Wrong Credentials for customer"
   	end
   end
 
