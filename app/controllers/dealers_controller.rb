@@ -28,6 +28,10 @@ class DealersController < ApplicationController
     @dealer = Dealer.new(dealer_params)
 
     # respond_to do |format|
+    if Dealer.find_by(email: params[:dealer][:email])  != nil
+      redirect_to new_dealer_path, alert: "Someone with this username already exist"
+    end
+      
       if @dealer.save
       #   format.html { redirect_to @dealer, notice: 'Dealer was successfully created.' }
       #   format.json { render :show, status: :created, location: @dealer }
