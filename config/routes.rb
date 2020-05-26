@@ -7,17 +7,9 @@ Rails.application.routes.draw do
   # delete 'customersession/destroy'
   	resources :dealersession, only: [:new, :create, :destroy]
   	resources :customersession, only: [:new, :create, :destroy]
-	resources :customers do
-		resources :cart
-		resources :cpendingorders
-		resources :corders
-	end
+	resources :customers
 	resources :customerpersonalinfos, only: [:new, :create, :edit, :update, :destroy, :show]
-	resources :dealers do
-		resources :products
-		resources :dpendingorders
-		resources :dorders
-	end
+	resources :dealers
 	resources :dealerpersonalinfos
 
 	root to: "dealers#index"
