@@ -27,6 +27,11 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
 
+    if Customer.find_by(email: params[:customer][:email])  != nil
+      redirect_to new_customer_path, alert: "Someone with this username already exist, Try another"
+      return
+    end
+
     #respond_to do |format|
       if @customer.save
         #format.html { redirect_to @customer, notice: 'Customer was successfully created.' }

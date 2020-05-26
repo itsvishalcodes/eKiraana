@@ -29,7 +29,8 @@ class DealersController < ApplicationController
 
     # respond_to do |format|
     if Dealer.find_by(email: params[:dealer][:email])  != nil
-      redirect_to new_dealer_path, alert: "Someone with this username already exist"
+      redirect_to new_dealer_path, alert: "Someone with this username already exist, Try another"
+      return
     end
       
       if @dealer.save
@@ -47,7 +48,7 @@ class DealersController < ApplicationController
       session[:dealer_id] = current_dealer.id
       redirect_to new_dealerpersonalinfo_path, notice: "Logged In as Dealer"
     else
-      redirect_to dealer_login, alert: "Wrong Credentials"
+      redirect_to dealerlogin_path, alert: "Wrong Credentials"
     end
   end
 
