@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 	resources :customerpersonalinfos, only: [:new, :create, :edit, :update, :destroy, :show]
 	resources :dealers
 	resources :dealerpersonalinfos
+	resources :products
 
 	root to: "dealers#index"
 
