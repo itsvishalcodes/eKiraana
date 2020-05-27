@@ -2,12 +2,14 @@
 
 one:
   name: MyString
-  typeofproduct: MyString
-  tags: MyString
+  price: 1.5
+  tags: MyText
+  description: MyText
   dealer: one
 
 two:
   name: MyString
-  typeofproduct: MyString
-  tags: MyString
+  price: 1.5
+  tags: MyText
+  description: MyText
   dealer: two
