@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'homepage/index'
   # get 'dealersession/new'
   # get 'dealersession/create'
   # get 'dealersession/destroy'
