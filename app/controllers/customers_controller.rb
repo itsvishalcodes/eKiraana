@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  skip_before_action :ensure_login, only: [:new, :create]
+  skip_before_action :ensure_login_user, only: [:new, :create]
+  skip_before_action :ensure_login_dealer, only: [:new, :create]
 
   # GET /customers
   # GET /customers.json

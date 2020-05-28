@@ -1,5 +1,6 @@
 class DealersessionController < ApplicationController
-	skip_before_action :ensure_login, only: [:new, :create]
+	skip_before_action :ensure_login_user, only: [:new, :create]
+  skip_before_action :ensure_login_dealer, only: [:new, :create]
   def new
   end
 
