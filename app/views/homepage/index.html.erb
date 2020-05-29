@@ -2,5 +2,6 @@
 <% @allproducts.each do |product| %>
 	<div>
 		<%= product.name %>
+		<%= link_to 'Add to Cart', cart_path(product.id), method: :patch %>
 	</div>
 <% end %>

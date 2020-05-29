@@ -1,0 +1,7 @@
+<h1>My Cart</h1>
+<% @cart.each do |obj| %>
+	<%= obj.product.name %>
+	<span>x</span><%= obj.quantity %>
+	<span>for</span><%= obj.product.price %>
+	<br/>
+<% end %>
