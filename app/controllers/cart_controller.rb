@@ -12,10 +12,15 @@ class CartController < ApplicationController
 	def update
 		@product = Product.find_by(id: params[:id])
 		@carttosave = Cart.new
-		@carttosave.customer_id = current_user.id
 		@carttosave.product_id = @product.id
-		@carttosave.quantity = 1
-		@carttosave.save
-		redirect_to cart_index_path
+		if Cart.find_by(product_id: @carttosave.product_id) != nil
+			Cart.find_by(product_id: @carttosave.product_id).update!(:quantity => Cart.find_by(product_id: @carttosave.product_id).quantity+1)
+		else
+			@carttosave.customer_id = current_user.id
+			# @carttosave.product_id = @product.id
+			@carttosave.quantity = 1
+			@carttosave.save
+		end
+		redirect_to homepage_index_path
 	end
 end
