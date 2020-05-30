@@ -4,10 +4,6 @@ class CartController < ApplicationController
 		@cart = current_user().cart
 	end
 
-	def create
-		@user_using = Customer.find_by(id: params[:customer_id])
-		redirect_to cart_index_path
-	end
 
 	def update
 		@product = Product.find_by(id: params[:id])

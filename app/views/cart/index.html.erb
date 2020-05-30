@@ -2,6 +2,11 @@
 <% @cart.each do |obj| %>
 	<%= obj.product.name %>
 	<span>x</span><%= obj.quantity %>
-	<span>for</span><%= obj.product.price %>
+	<span> for </span><%= obj.product.price*obj.quantity %>
 	<br/>
+<% end %>
+<% if @cart.count > 0 %>
+	<%= link_to 'Checkout', checkout_index_path, method: :post %>
+<% else %>
+	<div>It's empty here</div>
 <% end %>

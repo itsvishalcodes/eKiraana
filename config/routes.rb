@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 	resources :dealerpersonalinfos
 	resources :products
 	resources :cart
+	resources :checkout
 
 	root to: "dealers#index"
 
