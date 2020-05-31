@@ -2,6 +2,6 @@
 <% @allproducts.each do |product| %>
 	<div>
 		<%= product.name %> sold by <%= product.dealer.dealerpersonalinfo.shopname %>
-		<%= link_to 'Add to Cart', cart_path(product.id), method: :patch %>
+		<%= link_to 'Add to Cart', cart_path(product.id), method: :patch, :remote => true %>
 	</div>
 <% end %>

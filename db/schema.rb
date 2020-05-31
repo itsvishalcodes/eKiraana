@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_052032) do
+ActiveRecord::Schema.define(version: 2020_05_29_234013) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "quantity"
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(version: 2020_05_29_052032) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "pendingorders", force: :cascade do |t|
+    t.integer "quantity"
+    t.string "confkey"
+    t.integer "product_id", null: false
+    t.integer "customer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_pendingorders_on_customer_id"
+    t.index ["product_id"], name: "index_pendingorders_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -72,5 +83,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_052032) do
   add_foreign_key "carts", "products"
   add_foreign_key "customerpersonalinfos", "customers"
   add_foreign_key "dealerpersonalinfos", "dealers"
+  add_foreign_key "pendingorders", "customers"
+  add_foreign_key "pendingorders", "products"
   add_foreign_key "products", "dealers"
 end

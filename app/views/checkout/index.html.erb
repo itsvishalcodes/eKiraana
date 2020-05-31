@@ -1,0 +1,7 @@
+<h1>Currenty pending delivery</h1>
+<% @allpending.each do |currpending| %>
+	<%= currpending.product.name %>
+	<span>x</span><%= currpending.quantity %>
+	<span> for </span><%= currpending.product.price*currpending.quantity %>
+	<br/>
+<% end %>

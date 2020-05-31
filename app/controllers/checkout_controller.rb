@@ -1,5 +1,8 @@
 class CheckoutController < ApplicationController
 	skip_before_action :ensure_login_dealer
+	def index
+		@allpending = Pendingorder.where(customer_id: current_user.id)
+	end
 	def create
 		@randomstr = (0...8).map { ('a'..'z').to_a[rand(26)] }.join
 		@topending = current_user.cart

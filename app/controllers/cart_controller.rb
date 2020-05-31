@@ -17,6 +17,5 @@ class CartController < ApplicationController
 			@carttosave.quantity = 1
 			@carttosave.save
 		end
-		redirect_to homepage_index_path
 	end
 end

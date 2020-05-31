@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 	resources :cart
 	resources :checkout
 
-	root to: "dealers#index"
+	root to: "homepage#index"
 
 	get "/login" => "customersession#new", as: "login"
 	delete "/logout" => "customersession#destroy", as: "logout"
