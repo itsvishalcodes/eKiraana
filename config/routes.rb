@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'delaerdelivery/index'
-  get 'delaerdelivery/update'
+  # get 'delaerdelivery/index'
+  # get 'delaerdelivery/:id', to: 'delaerdelivery#show'
   get 'homepage/index'
   # get 'dealersession/new'
   # get 'dealersession/create'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 	resources :products
 	resources :cart
 	resources :checkout
+	resources :delaerdelivery
 
 	root to: "homepage#index"
 

@@ -1,0 +1,9 @@
+<h1>Pending Delivery</h1>
+<div>
+<% @allptdbc.each do |ptdbc| %>
+	Product: <%= Product.find(ptdbc.product_id).name %><br/>
+	Qty: <%= ptdbc.quantity %><br/>
+	Price: <%= Product.find(ptdbc.product_id).price %>
+	<hr/>
+<% end %>
+</div>

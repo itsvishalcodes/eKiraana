@@ -1,10 +1,11 @@
 <h1>Products pending to be deliver</h1>
 <div>
-	<% @allptd.each do |eptd| %>
-		Product: <%= eptd.product.name %><br/>
-		To: <%= eptd.customer.customerpersonalinfo.name %><br/>
-		Add: <%= eptd.customer.customerpersonalinfo.address %><br/>
-		Qty: <%= eptd.quantity %>
+	<% @allptd.each do |key, value| %>
+		To: <%= Customer.find(key).customerpersonalinfo.name %><br/>
+		Add: <%= Customer.find(key).customerpersonalinfo.address %><br/>
+		Phone: <%= Customer.find(key).customerpersonalinfo.phone %><br/>
+		TP: <%= value %>
+		<%= link_to 'show', delaerdelivery_path(key)%>
 		<br/>
 		<br/>
 	<% end %>
