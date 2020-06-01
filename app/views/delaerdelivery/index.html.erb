@@ -1,0 +1,11 @@
+<h1>Products pending to be deliver</h1>
+<div>
+	<% @allptd.each do |eptd| %>
+		Product: <%= eptd.product.name %><br/>
+		To: <%= eptd.customer.customerpersonalinfo.name %><br/>
+		Add: <%= eptd.customer.customerpersonalinfo.address %><br/>
+		Qty: <%= eptd.quantity %>
+		<br/>
+		<br/>
+	<% end %>
+</div>

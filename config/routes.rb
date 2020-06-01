@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'delaerdelivery/index'
+  get 'delaerdelivery/update'
   get 'homepage/index'
   # get 'dealersession/new'
   # get 'dealersession/create'
