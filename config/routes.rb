@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 	resources :cart
 	resources :checkout
 	resources :delaerdelivery
+	get '/confdel' => 'delaerdelivery#conf', :as => 'conf_del'
+	get '/search' => 'pages#search', :as => 'search_page'
 
 	root to: "homepage#index"
 

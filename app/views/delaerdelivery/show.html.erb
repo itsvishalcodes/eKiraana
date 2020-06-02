@@ -1,12 +1,23 @@
 <h1>Pending Delivery for <%= Customer.find(@key).customerpersonalinfo.name %></h1>
 <div>
+	Enter Conf. Key got from user:
+	<%= form_tag(conf_del_path, :method => "get",   
+    class: 'form-inline my-2 my-lg-0', :remote => true) do %>  
+  		<div class="input-group">  
+    		<%= search_field_tag :conf_key, params[:conf_key], placeholder: "Conformation Key", class: "form-control mr-sm-2" %>  
+    		<div class="input-group-btn">  
+      			<%= button_tag "Submit", :class => 'btn btn-info',:name => nil%>  
+    		</div>  
+  		</div>  
+	<% end %>
+</div>
+<hr/>
+<hr/>
+<div>
 <% @allptdbc.each do |ptdbc| %>
 	Product: <%= Product.find(ptdbc.product_id).name %><br/>
 	Qty: <%= ptdbc.quantity %><br/>
 	Price: <%= Product.find(ptdbc.product_id).price*ptdbc.quantity %>
 	<hr/>
 <% end %>
-</div>
-<div>
-	Enter Conf. Key got from user:
 </div>
