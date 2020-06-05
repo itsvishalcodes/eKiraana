@@ -1,32 +1,30 @@
-<%= form_with(model: customerpersonalinfo, local: true) do |form| %>
-  <% if customerpersonalinfo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(customerpersonalinfo.errors.count, "error") %> prohibited this customerpersonalinfo from being saved:</h2>
+<div style="width: 100%; margin: 7rem auto 0;">
+  <%= form_with(model: customerpersonalinfo, local: true, class: 'form-inline my-2 my-lg-0', style: 'text-align: center;') do |form| %>
+    <% if customerpersonalinfo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(customerpersonalinfo.errors.count, "error") %> prohibited this customerpersonalinfo from being saved:</h2>
 
-      <ul>
-        <% customerpersonalinfo.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+        <ul>
+          <% customerpersonalinfo.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    
+
+    <div style="text-align: center; width: 100%;">
+      <%= search_field_tag :name, params[:name], placeholder: "Name", class: "form-control mr-sm-2" %><br/>
+      <div style="height: 5px;"></div>
+      <%= search_field_tag :phone, params[:phone], placeholder: "Phone", class: "form-control mr-sm-2" %><br/>
+      <div style="height: 5px;"></div>
+      <%= search_field_tag :address, params[:address], placeholder: "Address", class: "form-control mr-sm-2" %><br/>
+      <div style="height: 5px;"></div>
+      <div class="input-group-btn">  
+        <%= button_tag "Submit", :class => 'btn btn-info',:name => nil%>  
+      </div>  
+    </div>  
+
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -11,7 +11,9 @@
 			<div class="field width-vw"><b><%= f.label :email, class: "label-login" %></b><br/><%=f.text_field :email, class: 'text-field-vw'%></div>
 			<p/>
 			<div class="field width-vw"><b><%= f.label :password, class: "label-login" %></b><br/><%= f.password_field :password, class: 'text-field-vw' %></div>
-			<div class="actions text-align-center login-button"><%= f.submit "Login", class: 'transparent-background no-border display-vertical-center' %></div>
+			<div class="input-group-btn" style="text-align: center; margin: 1rem 0">  
+    			<%= button_tag "Login", :class => 'btn btn-info',:name => nil%>  
+  			</div>
 			
 		<% end %>
 	</div>

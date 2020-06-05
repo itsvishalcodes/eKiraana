@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # get 'delaerdelivery/index'
   # get 'delaerdelivery/:id', to: 'delaerdelivery#show'
-  get 'homepage/index'
+  get '/homepage' => 'homepage#index', :as => 'home_page'
   # get 'dealersession/new'
   # get 'dealersession/create'
   # get 'dealersession/destroy'
