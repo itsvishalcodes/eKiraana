@@ -9,8 +9,8 @@ class CartController < ApplicationController
 		@product = Product.find_by(id: params[:id])
 		@carttosave = Cart.new
 		@carttosave.product_id = @product.id
-		if Cart.find_by(product_id: @carttosave.product_id) != nil
-			Cart.find_by(product_id: @carttosave.product_id).update!(:quantity => Cart.find_by(product_id: @carttosave.product_id).quantity+1)
+		if current_user.cart.find_by(product_id: @carttosave.product_id) != nil
+			current_user.cart.find_by(product_id: @carttosave.product_id).update!(:quantity => current_user.cart.find_by(product_id: @carttosave.product_id).quantity+1)
 		else
 			@carttosave.customer_id = current_user.id
 			# @carttosave.product_id = @product.id
