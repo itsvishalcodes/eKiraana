@@ -7,21 +7,26 @@
 	<div class="login-form">
 		<h1 class="login-header">Login</h1>
 		<div class="space-1"></div>
-		<%= form_for(:customer, url: customersession_index_path) do |f| %>
-			<div class="field width-vw"><b><%= f.label :email, class: "label-login" %></b><br/><%=f.text_field :email, class: 'text-field-vw'%></div>
-			<p/>
-			<div class="field width-vw"><b><%= f.label :password, class: "label-login" %></b><br/><%= f.password_field :password, class: 'text-field-vw' %></div>
-			<div class="input-group-btn" style="text-align: center; margin: 1rem 0">  
-    			<%= button_tag "Login", :class => 'btn btn-info',:name => nil%>  
-  			</div>
-			
-		<% end %>
+
+		<%= form_for(:customer, url: customersession_index_path, class: 'form-inline my-2 my-lg-0', style: 'text-align: center;') do |form| %>
+			<div style="text-align: center; width: 100%;">
+		      <%= search_field_tag :email, params[:email], placeholder: "Email", class: "form-control mr-sm-2" %><br/>
+		      <div style="height: 5px;"></div>
+		      <%= password_field_tag :password, params[:password], placeholder: "Password", class: "form-control mr-sm-2" %><br/>
+		      <div style="height: 5px;"></div> 
+		      <div class="input-group-btn" style="margin-bottom: 1rem;">  
+		        <%= button_tag "Submit", :class => 'btn btn-info',:name => nil%>  
+	     	  </div>  
+	    	</div>  
+
+  		<% end %>
+
 	</div>
 </div>
 <hr>
-<div style="font-size: 12px; color: gray; text-align: center;">New to us?</div>
-<div class="actions text-align-center login-button register-button">
-	<%= link_to 'Register', new_customer_path, class: "text-align-center display-block no-text-decoration" %>
+<div style="text-align: center">
+	<span style="font-size: 12px; color: gray; text-align: center;">New to us?</span>
+		<%= link_to 'Register', new_customer_path %>
 </div>
 <div class="space-1"></div>
 <div class="space-1"></div>

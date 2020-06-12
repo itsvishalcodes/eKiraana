@@ -5,8 +5,8 @@ class CustomersessionController < ApplicationController
   end
 
   def create
-  	current_user = Customer.find_by(email: params[:customer][:email])
-  	password = params[:customer][:password]
+  	current_user = Customer.find_by(email: params[:email])
+  	password = params[:password]
 
   	if current_user && current_user.authenticate(password)
   		session[:customer_id] = current_user.id
