@@ -15,6 +15,7 @@ class CheckoutController < ApplicationController
 			@toaddco.save
 		end
 		current_user.cart.destroy_all
-		redirect_to cart_index_path
+		flash['Notification'] = "Thankyou for Shopping with us... Your order will reach you within 30 minutes! \n :)"
+		redirect_to root_path
 	end
 end

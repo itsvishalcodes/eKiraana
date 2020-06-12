@@ -1,6 +1,6 @@
 class CustomersessionController < ApplicationController
   skip_before_action :ensure_login_user, only: [:new, :create]
-  skip_before_action :ensure_login_dealer, only: [:new, :create]
+  skip_before_action :ensure_login_dealer, only: [:new, :create, :destroy]
   def new
   end
 
@@ -11,7 +11,8 @@ class CustomersessionController < ApplicationController
   	if current_user && current_user.authenticate(password)
   		session[:customer_id] = current_user.id
       if current_user.customerpersonalinfo != nil
-  		  redirect_to root_path, notice: "Logged In"
+        flash['Notification'] = "Logged In"
+  		  redirect_to root_path
       else
         redirect_to new_customerpersonalinfo_path, alert: "Incomplete Profile! Fill all the details"
       end
@@ -22,6 +23,8 @@ class CustomersessionController < ApplicationController
 
   def destroy
   	reset_session
-  	redirect_to login_path, notice: "You have been logged out"
+    session[:customer_id] = nil
+    flash['Notification'] = "Logged Out"
+  	redirect_to root_path
   end
 end
