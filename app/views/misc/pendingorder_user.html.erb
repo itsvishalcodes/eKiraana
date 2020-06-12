@@ -1,0 +1,7 @@
+<h3>Orders waiting to be delivered to you</h3>
+<% @allpo.each do |po| %>
+	Product: <%= po.product.name %>
+	<br>
+	Quantity: <%= po.quantity %>
+	<br>
+<% end %>

@@ -1,0 +1,7 @@
+<h4>Your Orders</h4>
+<% @allo.each do |o| %>
+	Product: <%= o.product.name %>
+	<br>
+	Quantity: <%= o.quantity %>
+	<br>
+<% end %>

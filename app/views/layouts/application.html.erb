@@ -35,9 +35,9 @@
           
         .center { 
             position: absolute; 
-            top: 0; 
+            top: 50%; 
             bottom: 0; 
-            left: 0; 
+            left: 50%; 
             right: 0; 
             margin: auto; 
         } 
@@ -83,6 +83,9 @@
   </head>
 
   <body>
+    <div style="position: relative;">
+      <div id="loader center"></div>
+    </div>
     <header>
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="row">
@@ -104,29 +107,41 @@
           </li>
           <li class="nav-item">
             <%= link_to cart_index_path do %>
-              <i class="fa fa-shopping-cart"></i>
+              <i class="fa fa-shopping-basket"></i>
               <span>Cart</span>
             <% end %>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Orders
+          <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 8px 8px 8px 32px;">
+                <i class="fa fa-shopping-cart"></i>
+                <span>
+                  Orders
+                </span>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Pending Orders</a>
-              <a class="dropdown-item" href="#">All Orders</a>
+              <%= link_to pending_order_user_path do %>
+                <span class="dropdown-item">Pending Orders</span>
+              <% end %>
+              <%= link_to all_order_user_path do %>
+                <span class="dropdown-item">All Orders</span>
+              <% end %>
             </div>
           </li>
         </ul>
         <% if session[:customer_id] %>
           <%= link_to logout_path, method: :delete, :class => "button no-dec" do %>
             <i class="fas fa-sign-out-alt"></i>
-            <i>Logout</i>
+            <span>Logout</span>
           <% end %>
+          <% else %>
+            <%= link_to login_path, :class => "button no-dec" do %>
+              <i class="fas fa-sign-in-alt"></i>
+              <span>Log In</span>
+            <% end %>
         <% end %>
       </div>
       <div class="col-xs-10 col-md-10 col-sm-10">
-        <div style="float: left; width: 250px;">
+        <div style="float: left; width: 100%;">
             <%= form_tag(home_page_path, :method => "get",   
               class: 'form-inline my-2 my-lg-0') do %>  
                 <div class="input-group">  
@@ -139,12 +154,13 @@
             </div>
           </div>
         </div>
+      </div>
         </nav>
 
 
 
     <% flash.each do |key, value| %>
-    <div id="alerts" aria-live="polite" aria-atomic="true" style="position: relative; min-height: 100px; float: right;">
+    <div id="alerts" aria-live="polite" aria-atomic="true" style="position: relative; min-height: 100px;">
         <div class="toast op-full" style="position: absolute; top: 0; right: 0; min-width: 250px;">
             <div class="toast-header">
               <strong class="mr-auto"><%= key %></strong>
@@ -152,7 +168,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="toast-body" style="background-color: rgba(255,255,255,.85);">
+            <div class="toast-body" style="background: white; ">
               <%= value %>
             </div>
           
@@ -171,19 +187,7 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       
       <script type="text/javascript">
-        $(document).on("page:fetch", function(){
-          $("#loader").show();
-          return;
-        });
-
-        $(document).on("page:receive", function(){
-          $("#loader").delay(3000).hide();
-          return;
-        });
-
-        setTimeout(function() {
-          $('#alerts').fadeOut('fast');
-        }, 3000);
+        
         function closealert() {
           document.getElementById('alerts').style.display = 'none';
         }
@@ -195,6 +199,18 @@
         function closeNav() {
           document.getElementById("mySidenav").style.width = "0";
         }
+
+        $(document).ready(function(){
+          $('#loader').hide();
+          $(document).ajaxSend(function(event, request, settings) {
+            $('#loader').show();
+          });
+
+        $(document).ajaxComplete(function(event, request, settings) {
+          $('#loader').delay(3000).style.display = 'none';
+          });
+        });
+
       </script>
 
   </body>

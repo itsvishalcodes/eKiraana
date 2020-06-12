@@ -16,6 +16,20 @@
   border-radius: 0 4px 4px 0 !important;
 }
 
+.addtocartbtn {
+  position: absolute;
+  right: 0;
+}
+
+.product-box {
+  height: 8rem;
+  position: relative;
+}
+
+.price {
+  font-size: 2rem;
+}
+
 .fa,
 .fas,
 .far,

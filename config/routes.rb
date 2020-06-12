@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 	resources :delaerdelivery
 	get '/confdel' => 'delaerdelivery#conf', :as => 'conf_del'
 	get '/search' => 'pages#search', :as => 'search_page'
+	get '/pendingorders' => 'misc#pendingorder_user', :as => 'pending_order_user'
+	get '/allorders' => 'misc#allorder_user', :as => 'all_order_user'
 
 	root to: "homepage#index"
 

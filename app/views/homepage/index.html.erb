@@ -1,7 +1,21 @@
-<h1>Products</h1>
+
 <% @allproducts.each do |product| %>
-	<div>
-		<%= product.name %> sold by <%= product.dealer.dealerpersonalinfo.shopname %>
-		<%= link_to 'Add to Cart', cart_path(product.id), method: :patch, :remote => true %>
+	<div class="product-box">
+			<div style="position: absolute; top: 20%; left: 10px;;">
+				<b><%= product.name %></b>
+				<br>
+				<i>Seller: <%= product.dealer.dealerpersonalinfo.shopname %></i>
+				<br>
+				<div class="price">
+					<i class="fa fa-rupee-sign"></i>
+					<%= product.price %>
+				</div>
+			</div>
+		<span style="position: absolute; right: 5px; top: 25%;">
+			<%= link_to  cart_path(product.id), method: :patch, :remote => true, :class => "addtocartbtn" do %>
+				<i class="fa fa-cart-plus" style="font-size: 2rem; margin-right: 5px;"></i>
+			<% end %>
+		</span>
 	</div>
+	<hr>
 <% end %>
