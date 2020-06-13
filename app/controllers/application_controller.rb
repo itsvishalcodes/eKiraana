@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
 	before_action :ensure_login_user
 	before_action :ensure_login_dealer
-	helper_method :logged_in?, :current_user, :current_dealer
+	helper_method :logged_in?, :logged_in_dealer?, :current_user, :current_dealer
 
 
 	protected
@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
 
 	def logged_in?
 		session[:customer_id]
+	end
+
+	def logged_in_dealer?
+		session[:dealer_id]
 	end
 
 	def current_user

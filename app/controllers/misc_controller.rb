@@ -3,7 +3,16 @@ class MiscController < ApplicationController
 	def pendingorder_user
 		@allpo = Pendingorder.where(customer_id: current_user.id)
 	end
+	
 	def allorder_user
 		@allo = Allorder.where(customer_id: current_user.id)
+	end
+
+	def delboypendings
+		
+	end
+
+	def delboypendingsbc
+		
 	end
 end

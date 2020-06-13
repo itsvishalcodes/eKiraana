@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 	get '/search' => 'pages#search', :as => 'search_page'
 	get '/pendingorders' => 'misc#pendingorder_user', :as => 'pending_order_user'
 	get '/allorders' => 'misc#allorder_user', :as => 'all_order_user'
+	get '/delboypendingorders' => 'misc#delboypendings', :as => 'delboy_pendings'
+	get '/delboypeningorders/:id' => 'misc#delboypendingsbc,' :as => 'delboy_pendingsbc'
 
 	root to: "homepage#index"
 
