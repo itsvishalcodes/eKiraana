@@ -139,6 +139,18 @@
               <span>Log In</span>
             <% end %>
         <% end %>
+        <% if session[:dealer_id] %>
+          <%= link_to dealerlogout_path, method: :delete, :class => 'button no-dec' do %>
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Dealer Logout</span>
+          <% end %>
+        <% end %>
+        <% if session[:delboy_id] %>
+          <%= link_to delboysession_destroy_path, method: :delete, :class => 'button no-dec' do %>
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Del. Boy Logout</span>
+          <% end %>
+        <% end %>
       </div>
       <div class="col-xs-10 col-md-10 col-sm-10">
         <div style="float: left; width: 100%;">

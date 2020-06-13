@@ -1,6 +1,7 @@
 class DealerpersonalinfosController < ApplicationController
   before_action :set_dealerpersonalinfo, only: [:show, :edit, :update, :destroy]
-  skip_before_action :ensure_login_user, only: [:new, :create]
+  skip_before_action :ensure_login_user
+  skip_before_action :ensure_login_delboy
 
   # GET /dealerpersonalinfos
   # GET /dealerpersonalinfos.json

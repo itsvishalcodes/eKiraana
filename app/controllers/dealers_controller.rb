@@ -1,6 +1,7 @@
 class DealersController < ApplicationController
   before_action :set_dealer, only: [:show, :edit, :update, :destroy]
-  skip_before_action :ensure_login_user, only: [:new, :create]
+  skip_before_action :ensure_login_user
+  skip_before_action :ensure_login_delboy
   skip_before_action :ensure_login_dealer, only: [:new, :create]
 
   # GET /dealers

@@ -1,7 +1,9 @@
 class CustomerpersonalinfosController < ApplicationController
   before_action :set_customerpersonalinfo, only: [:show, :edit, :update, :destroy]
   # skip_before_action :ensure_login, only: [:new, :create]
-  skip_before_action :ensure_login_dealer, only: [:new, :create]
+  skip_before_action :ensure_login_dealer
+  
+  skip_before_action :ensure_login_delboy
 
   # GET /customerpersonalinfos
   # GET /customerpersonalinfos.json

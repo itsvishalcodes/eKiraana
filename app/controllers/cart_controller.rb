@@ -1,5 +1,6 @@
 class CartController < ApplicationController
-	skip_before_action :ensure_login_dealer, only: [:new, :create, :index, :update]
+	skip_before_action :ensure_login_dealer
+	skip_before_action :ensure_login_delboy
 	def index
 		@cart = current_user().cart
 	end

@@ -1,6 +1,7 @@
 class CustomersessionController < ApplicationController
   skip_before_action :ensure_login_user, only: [:new, :create]
   skip_before_action :ensure_login_dealer, only: [:new, :create, :destroy]
+  skip_before_action :ensure_login_delboy
   def new
   end
 

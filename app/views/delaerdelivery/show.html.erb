@@ -2,9 +2,9 @@
 <div>
 	Enter Conf. Key got from user:
 	<%= form_tag(conf_del_path, :method => "get",   
-    class: 'form-inline my-2 my-lg-0', :remote => true) do %>  
+    class: 'form-inline my-2 my-lg-0') do %>  
   		<div class="input-group">  
-    		<%= search_field_tag :conf_key, params[:conf_key], placeholder: "Conformation Key", class: "form-control mr-sm-2" %>  
+    		<%= text_field_tag :conf_key, params[:conf_key], placeholder: "Conformation Key", class: "form-control mr-sm-2" %>  
     		<div class="input-group-btn">  
       			<%= button_tag "Submit", :class => 'btn btn-info',:name => nil%>  
     		</div>  

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
 	before_action :ensure_login_user
 	before_action :ensure_login_dealer
+	before_action :ensure_login_delboy
 	helper_method :logged_in?, :logged_in_dealer?, :current_user, :current_dealer
 
 
@@ -13,6 +14,10 @@ class ApplicationController < ActionController::Base
 
 	def ensure_login_dealer
 		redirect_to dealerlogin_path unless session[:dealer_id]
+	end
+
+	def ensure_login_delboy
+		redirect_to delboysession_new_path unless session[:delboy_id]
 	end
 
 	def logged_in?

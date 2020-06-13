@@ -1,5 +1,6 @@
 class DelaerdeliveryController < ApplicationController
   skip_before_action :ensure_login_user
+  skip_before_action :ensure_login_delboy
   def index
   	@allptd = current_dealer.ptd.group(:customer_id).count
   end
