@@ -1,11 +1,16 @@
 class MiscController < ApplicationController
-	skip_before_action :ensure_login_dealer, only: [:pendingorder_user, :allorder_user, :delboypendings, :delboypendingsbc, :delboyconfdel]
-	skip_before_action :ensure_login_delboy, only: [:pendingorder_user, :allorder_user]
+	skip_before_action :ensure_login_dealer, only: [:pendingorder_user, :allorder_user, :delboypendings, :delboypendingsbc, :delboyconfdel, :pendingorder_userbc]
+	skip_before_action :ensure_login_delboy, only: [:pendingorder_user, :allorder_user, :pendingorder_userbc]
 
 	skip_before_action :ensure_login_user, only: [:delboypendings, :delboypendingsbc, :delboyconfdel]
 	
 	def pendingorder_user
-		@allpo = Pendingorder.where(customer_id: current_user.id)
+		@allpo = Pendingorder.where(customer_id: current_user.id).group(:confkey).count
+	end
+
+	def pendingorder_userbc
+		@key = params[:configkey]
+		@pendingsbc = Pendingorder.where(customer_id: current_user.id).where(confkey: @key)
 	end
 	
 	def allorder_user
