@@ -18,5 +18,8 @@ class CartController < ApplicationController
 			@carttosave.quantity = 1
 			@carttosave.save
 		end
+		respond_to do |format|
+			format.js
+		end
 	end
 end

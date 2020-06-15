@@ -215,16 +215,7 @@
           document.getElementById("mySidenav").style.width = "0";
         }
 
-        $(document).ready(function(){
-          $('#loader').hide();
-          $(document).ajaxSend(function(event, request, settings) {
-            $('#loader').show();
-          });
-
-        $(document).ajaxComplete(function(event, request, settings) {
-          $('#loader').delay(3000).style.display = 'none';
-          });
-        });
+      
 
       </script>
 
