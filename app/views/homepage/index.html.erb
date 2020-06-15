@@ -17,10 +17,14 @@
 			<% end %>
 		</span>
 		<span id="quantityhomepage" style="position: absolute; right: 5px; top: 75%">
-			<% if Cart.where(customer_id: current_user.id).exists?(:product_id => product.id) %>
-				<%= Cart.where(customer_id: current_user.id).find_by(product_id: product.id).quantity %>
+			<% if session[:customer_id] %>
+				<% if Cart.where(customer_id: current_user.id).exists?(:product_id => product.id) %>
+					<%= Cart.where(customer_id: current_user.id).find_by(product_id: product.id).quantity %>
+				<% else %>
+					<%= 0 %>
+				<% end %>
 			<% else %>
-				<%= 0 %>
+				0
 			<% end %>
 		</span>
 	</div>

@@ -1,6 +1,6 @@
 class HomepageController < ApplicationController
-	skip_before_action :ensure_login_user, only: [:index]
-	skip_before_action :ensure_login_dealer, only: [:index]
+	skip_before_action :ensure_login_user
+	skip_before_action :ensure_login_dealer
   skip_before_action :ensure_login_delboy
   def index
   	if params[:search].blank?
