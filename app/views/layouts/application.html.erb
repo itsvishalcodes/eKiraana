@@ -176,9 +176,18 @@
       </header>
 
 
-      <% flash.each do |key, value| %>
-    <div id="alerts" aria-live="polite" aria-atomic="true" style="position: relative; min-height: 100px; float: right;">
-        <div class="toast op-full" style="position: absolute; top: 0; right: 0; min-width: 250px;">
+      
+    <div class="preload">
+      <%= image_tag('Preloader_8.gif', size: 100) %>
+    </div>
+
+
+    <div class="container content" style="margin-top: 130px;">
+      <%= yield %>
+    </div>
+    <% flash.each do |key, value| %>
+    <div id="alerts" aria-live="polite" aria-atomic="true" style="position: absolute; min-height: 100px; top: 5px; right: 5px; min-width: 250px;">
+        <div class="toast op-full" style="min-width: 250px;">
             <div class="toast-header">
               <strong class="mr-auto"><%= key %></strong>
               <button onclick="closealert();" id="closealertbtn" type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
@@ -193,14 +202,6 @@
       </div>
     <% end %>
 
-    <div class="preload">
-      <%= image_tag('Preloader_8.gif', size: 100) %>
-    </div>
-
-
-    <div class="container content" style="margin-top: 130px;">
-      <%= yield %>
-    </div>
 
 
 
