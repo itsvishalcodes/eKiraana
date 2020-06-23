@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'delboysession/create'
   delete 'delboysession/destroy'
   get '/delboyconfdel' => 'misc#delboyconfdel', :as => 'conf_del_delboy'
+  post '/cartminuss/:id' => 'cart#cartminus', :as => 'crtminus'
   # get 'delaerdelivery/index'
   # get 'delaerdelivery/:id', to: 'delaerdelivery#show'
   get '/homepage' => 'homepage#index', :as => 'home_page'
@@ -29,6 +30,9 @@ Rails.application.routes.draw do
 	get '/allorders' => 'misc#allorder_user', :as => 'all_order_user'
 	get '/delboypendingorders' => 'misc#delboypendings', :as => 'delboy_pendings'
 	get '/delboypeningorders/:id' => 'misc#delboypendingsbc', :as => 'delboy_pendingsbc'
+	get '/home' => 'homepage#indexws', :as => 'homepagews'
+	get '/editaddressform' => 'misc#editaddress_form', :as => 'editadd'
+	post '/updateaddress' => 'misc#editaddress', :as => 'editaddpost' 
 
 	root to: "homepage#index"
 

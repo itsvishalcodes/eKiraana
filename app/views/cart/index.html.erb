@@ -1,12 +1,69 @@
-<h1>My Cart</h1>
-<% @cart.each do |obj| %>
-	<%= obj.product.name %>
-	<span>x</span><%= obj.quantity %>
-	<span> for </span><%= obj.product.price*obj.quantity %>
-	<br/>
-<% end %>
+<h4 style="margin-top: 7rem;" class="cart-header">My Cart</h4>
+<hr> 
+
 <% if @cart.count > 0 %>
-	<%= link_to 'Checkout', checkout_index_path, method: :post %>
+	<a style="width: 100%;" class="btn btn-info" data-toggle="collapse" href="#collapseCartDetails" role="button" aria-expanded="false" aria-controler="collapseCartDetails">
+		<i class="fa fa-arrow-to-bottom"></i>
+		Show Products
+	</a>
+	<div class="collapse" id="collapseCartDetails">
+	<div style="padding: 6px; border: 1px solid black; border-radius: 5px;">
+		<div class="row">
+			<div class="col-7 col-sm-7">
+				<b><u>Product Name</u></b>
+			</div>
+			<div class="col-2 col-sm-2">
+				<b><u>Qty.</u></b>
+			</div>
+			<div class="col-3 col-sm-3">
+				<b><u>Price</u></b>
+			</div>
+		</div>
+		<br>
+		<% @cart.each do |obj| %>
+			<% @price = @price + obj.product.price*obj.quantity %>
+				<div class="row">
+					<div class="col-7 col-sm-7">	
+						<%= obj.product.name %>
+					</div>
+					<div class="col-2 col-sm-2">
+						<span>x</span><%= obj.quantity %>
+					</div>
+					<div class="col-3 col-sm-3">
+						<%= obj.product.price*obj.quantity %>
+					</div>
+					<br/>
+				</div>
+			
+		<% end %>
+	</div>
+	</div>
+	<br>
+	<div class="bill">
+		<h5 style="text-align: center;"><u>Your Bill</u></h5>
+		Total Products: <%= @cart.count %>
+		<br>
+		Price: <%= @price %>
+		<br>
+		Delivery Charges: <strike>$39</strike><span style="color: green;"> FREE </span>
+		<hr>
+		<b>Price to Pay: </b> <%= @price %>
+	</div>
+	<% if @price > 48.0 %>
+		<div class="delivery-cart" style="margin-bottom: 5rem;">	
+			<b>Delivering to:</b> <br> <%= current_user.customerpersonalinfo.name %> (+91 <%= current_user.customerpersonalinfo.phone %>)<br><%= current_user.customerpersonalinfo.address %>
+		</div>
+		<%= link_to 'Place Order', checkout_index_path, method: :post, class: 'btn btn-primary place-order-btn' %>
+	<% else %>
+			<i class="fa fa-info-circle"></i>
+			Minimum order amount: 49
+	<% end %>
 <% else %>
-	<div>It's empty here. Please order something</div>
+	<div style="width: 100%; margin: 7rem auto 0; text-align: center;">
+		<%= image_tag('empty_cart.png', size: 100) %>
+		<h5>Uh Oh! It looks like your cart is empty</h5>
+	</div>
+	<div class="btn-center">
+		<%= link_to 'Continue Shopping', home_page_path, class: "btn btn-primary" %>
+	</div>
 <% end %>

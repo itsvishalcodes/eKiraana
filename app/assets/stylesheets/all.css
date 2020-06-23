@@ -2,6 +2,16 @@
  * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
+.content {display:none;}
+.preload { 
+    width:100px;
+    height: 100px;
+    margin: 8rem auto 0;
+}
+.btn {
+  background-color: #ef476f !important;
+  border-color: #ef476f !important;
+}
 
 .op-full {
   opacity: 100% !important;
@@ -14,6 +24,8 @@
 .srch-btn {
   height: 2.4rem;
   border-radius: 0 4px 4px 0 !important;
+  background-color: transparent !important;
+  border-color: green !important; 
 }
 
 .addtocartbtn {
@@ -28,6 +40,25 @@
 
 .price {
   font-size: 2rem;
+}
+
+.cat-icons {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.cat-icons-container {
+  border-radius: 10px;
+}
+
+.element-inline {
+  display: inline;
 }
 
 .fa,

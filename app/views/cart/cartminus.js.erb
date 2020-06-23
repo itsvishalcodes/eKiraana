@@ -1,0 +1,2 @@
+$('#quantityhomepage-<%= params[:id] %>').html("<%= j @productquan %>");
+$('#cart-navbar').html("<%= j Cart.where(customer_id: current_user.id).count %>")

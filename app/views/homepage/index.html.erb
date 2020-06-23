@@ -1,32 +1,53 @@
-
-<% @allproducts.each do |product| %>
-	<div class="product-box">
-			<div style="position: absolute; top: 20%; left: 10px;;">
-				<b><%= product.name %></b>
-				<br>
-				<i>Seller: <%= product.dealer.dealerpersonalinfo.shopname %></i>
-				<br>
-				<div class="price">
-					<i class="fa fa-rupee-sign"></i>
-					<%= product.price %>
+<% if @allproducts.count > 0 %>
+	<% @allproducts.each do |product| %>
+		<div class="product-box">
+				<div style="position: absolute; top: 20%; left: 10px;;">
+					<b><%= product.name %></b>
+					<br>
+					<i>Seller: <%= product.dealer.dealerpersonalinfo.shopname %></i>
+					<br>
+					<div class="price">
+						<i class="fa fa-rupee-sign"></i>
+						<%= product.price %>
+					</div>
 				</div>
+			<div style="position: absolute; right: 8px; top: 45%; width: 3.6rem; height: 1.2rem;">
+				
+					<div style="width: 33.33%; display: inline; height: 1.2rem; width: 1.2rem;">
+						<span>	
+							<%= link_to crtminus_path(product.id), method: :post, remote: true do %>
+								<i class="fa fa-minus-square" style="font-size: 1.2rem;"></i>
+							<% end %>
+						</span>
+					</div>
+					<div style="width: 33.33%; display: inline;">
+						<span id="quantityhomepage-<%= product.id %>" >
+							<% if session[:customer_id] %>
+								<% if Cart.where(customer_id: current_user.id).exists?(:product_id => product.id) %>
+									<%= Cart.where(customer_id: current_user.id).find_by(product_id: product.id).quantity %>
+								<% else %>
+									<%= 0 %>
+								<% end %>
+							<% else %>
+								0
+							<% end %>
+						</span>
+					</div>
+					<div style="width: 33.33%; display: inline;">
+						<%= link_to  cart_path(product.id), method: :patch, :remote => true, :class => "addtocartbtn" do %>
+							<i class="fa fa-plus-square" style="font-size: 1.2rem; margin-right: 5px;"></i>
+						<% end %>
+					</div>
+				
 			</div>
-		<span style="position: absolute; right: 5px; top: 25%;">
-			<%= link_to  cart_path(product.id), method: :patch, :remote => true, :class => "addtocartbtn" do %>
-				<i class="fa fa-cart-plus" style="font-size: 2rem; margin-right: 5px;"></i>
-			<% end %>
-		</span>
-		<span id="quantityhomepage-<%= product.id %>" style="position: absolute; right: 5px; top: 75%">
-			<% if session[:customer_id] %>
-				<% if Cart.where(customer_id: current_user.id).exists?(:product_id => product.id) %>
-					<%= Cart.where(customer_id: current_user.id).find_by(product_id: product.id).quantity %>
-				<% else %>
-					<%= 0 %>
-				<% end %>
-			<% else %>
-				0
-			<% end %>
-		</span>
+			
+		</div>
+		<hr>
+	<% end %>
+<% else %>
+	<div style="width: 100%; margin: 7rem auto 0; text-align: center;">
+		<%= image_tag('nothing-found-logo.png', size: 150 ) %>
+		<h5>Oops! Looks like we don't have what you are looking for....</h5>
+		<h7>We are constantly adding new products...</h7>
 	</div>
-	<hr>
 <% end %>

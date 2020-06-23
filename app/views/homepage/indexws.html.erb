@@ -1,0 +1,117 @@
+<% if session[:customer_id] %>	
+	<div class="row homepage-top-block" style="min-height: 100px;">
+		<div class="col-7 col-sm-7 col-md-7">
+			<b>Delivering to: </b><br>
+			<%= current_user.customerpersonalinfo.address %><br>
+		</div>
+		<div class="col-1 col-sm-1 col-md-1" style="margin-top: 1.4rem;">
+			<%= link_to editadd_path, class: 'btn btn-outline-primary btn-sm' do %>
+				<span class="fa fa-pen"></span>
+			<% end %>
+		</div>
+		<div class="col-4 col-sm-4 col-md-4">
+			<%= image_tag('delivery-bike-logo.png', size: 100) %>
+		</div>
+	</div>
+<% end %>
+<br>
+<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-interval="3000">
+    	<a href="/homepage?search=bajaj almond drops" class="element-inline">
+      <%= image_tag('carousel/caro1.jpg', class: 'carousel-imgs') %>
+    </div>
+    <div class="carousel-item" data-interval="3000">
+    	<a href="/homepage?search=tata sampann" class="element-inline">
+      <%= image_tag('carousel/caro2.jpg', class: 'carousel-imgs') %>
+    </div>
+    <div class="carousel-item" data-interval="3000">
+    	<a href="/homepage?search=quick-food" class="element-inline">
+      <%= image_tag('carousel/caro3.jpg', class: 'carousel-imgs') %>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<div class="space-1"></div>
+<div class="space-1"></div>
+<h4> Snacks </h4>
+<hr>
+	<div class="row">
+		<div class="col-6 col-sm-6 col-md-6 no-padding">	
+			<a href="/homepage?search=biscuit" class="element-inline">
+				<%= image_tag('snacks/biscuits.jpg', class: 'cat-icons') %>
+			</a>
+		</div>
+		<div class="col-6 col-sm-6 col-md-6 no-padding">	
+			<a href="/homepage?search=breakfast" class="element-inline">
+				<%= image_tag('snacks/breakfast.jpg', class: 'cat-icons') %>
+			</a>
+		</div>
+		<div class="col-6 col-sm-6 col-md-6 no-padding">	
+			<a href="/homepage?search=noodle" class="element-inline">
+				<%= image_tag('snacks/noodles.jpg', class: 'cat-icons') %>
+			</a>
+		</div>
+		<div class="col-6 col-sm-6 col-md-6 no-padding">	
+			<a href="/homepage?search=nut" class="element-inline">
+				<%= image_tag('snacks/nuts.jpg', class: 'cat-icons') %>
+			</a>
+		</div>
+	</div>
+<hr>
+<h4> Cooking Stuffs </h4>
+<hr>
+<div class="row">	
+	<div class="col-6 col-sm-6 col-md-6 no-padding">
+		<a href="/homepage?search=flour" class="element-inline">
+			<%= image_tag('Cooking_stuffs/flour.jpg', class: 'cat-icons') %>
+		</a>
+	</div>
+	<div class="col-6 col-sm-6 col-md-6 no-padding">
+		<a href="/homepage?search=pulse" class="element-inline">
+			<%= image_tag('Cooking_stuffs/pulses.jpg', class: 'cat-icons') %>
+		</a>
+	</div>
+	<div class="col-6 col-sm-6 col-md-6 no-padding">
+		<a href="/homepage?search=rice" class="element-inline">
+			<%= image_tag('Cooking_stuffs/rice.jpg', class: 'cat-icons') %>
+		</a>
+	</div>
+	<div class="col-6 col-sm-6 col-md-6 no-padding">
+		<a href="/homepage?search=spice" class="element-inline">
+			<%= image_tag('Cooking_stuffs/spices.jpg', class: 'cat-icons') %>
+		</a>
+	</div>
+</div>
+<hr>
+<h4> Personal Care </h4>
+<hr>
+<div class="row">	
+	<div class="col-6 col-sm-6 col-md-6 no-padding">	
+		<a href="/homepage?search=detergent">
+			<%= image_tag('personal_care/detergents.jpg', class: 'cat-icons') %>
+		</a>
+	</div>
+	<div class="col-6 col-sm-6 col-md-6 no-padding">	
+		<a href="/homepage?search=health drink">
+			<%= image_tag('personal_care/health_drinks.jpg', class: 'cat-icons') %>
+		</a>
+	</div>
+	<div class="col-6 col-sm-6 col-md-6 no-padding">	
+		<a href="/homepage?search=oral">
+			<%= image_tag('personal_care/oral_care.jpg', class: 'cat-icons') %>
+		</a>
+	</div>
+	<div class="col-6 col-sm-6 col-md-6 no-padding">	
+		<a href="/homepage?search=sugar salt">
+			<%= image_tag('personal_care/salt_and_sugar.jpg', class: 'cat-icons') %>
+		</a>
+	</div>
+</div>

@@ -1,6 +1,6 @@
 class MiscController < ApplicationController
-	skip_before_action :ensure_login_dealer, only: [:pendingorder_user, :allorder_user, :delboypendings, :delboypendingsbc, :delboyconfdel, :pendingorder_userbc]
-	skip_before_action :ensure_login_delboy, only: [:pendingorder_user, :allorder_user, :pendingorder_userbc]
+	skip_before_action :ensure_login_dealer, only: [:pendingorder_user, :allorder_user, :delboypendings, :delboypendingsbc, :delboyconfdel, :pendingorder_userbc, :editaddress, :editaddress_form]
+	skip_before_action :ensure_login_delboy, only: [:pendingorder_user, :allorder_user, :pendingorder_userbc, :editaddress, :editaddress_form]
 
 	skip_before_action :ensure_login_user, only: [:delboypendings, :delboypendingsbc, :delboyconfdel]
 	
@@ -42,4 +42,18 @@ class MiscController < ApplicationController
   		flash['Notification'] = 'Delivered'
   		redirect_to delboy_pendings_path
 	end
+
+	def editaddress_form 
+
+	end
+
+	def editaddress 
+		current_user.customerpersonalinfo.update!(:name => params[:name])
+		current_user.customerpersonalinfo.update!(:phone => params[:phone])
+		current_user.customerpersonalinfo.update!(:address => params[:address])
+		flash['Notification'] = 'Personal Info updates'
+		redirect_to home_page_path
+	end
+
+	
 end

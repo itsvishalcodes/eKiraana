@@ -1,1 +1,2 @@
 $('#quantityhomepage-<%= params[:id] %>').html("<%= j Cart.where(customer_id: current_user.id).find_by(product_id: params[:id]).quantity %>");
+$('#cart-navbar').html("<%= j Cart.where(customer_id: current_user.id).count %>")

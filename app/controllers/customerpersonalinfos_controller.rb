@@ -28,7 +28,6 @@ class CustomerpersonalinfosController < ApplicationController
   # POST /customerpersonalinfos
   # POST /customerpersonalinfos.json
   def create
-    current_user
     @customerpersonalinfo = current_user().build_customerpersonalinfo(customerpersonalinfo_params)
 
     respond_to do |format|

@@ -1,12 +1,25 @@
-<h3>Orders waiting to be delivered to you</h3>
-<% @allpo.each do |key, value| %>
-	Conf. Key: <%= key %>
-	<br>
-	Total Products: <%= value %>
-	<br>
-	Ordered: <%= time_ago_in_words(Pendingorder.where(customer_id: current_user.id).where(confkey: key)[0].created_at) %> ago
-	<br>
-	<%= link_to 'Show', pending_order_userbc_path(key) %>
-	<br>
-	<hr>
+<% if @allpo.count > 0 %>	
+	<h3>Pending Transactions</h3><hr>
+	<% @allpo.each do |key, value| %>
+		Conf. Key: <%= key %>
+		<br>
+		Total Products: <%= value %>
+		<br>
+		Ordered: <%= time_ago_in_words(Pendingorder.where(customer_id: current_user.id).where(confkey: key)[0].created_at) %> ago
+		<br>
+		<%= link_to 'Show', pending_order_userbc_path(key) %>
+		<br>
+		<hr>
+	<% end %>
+	<div style="position: fixed; right: 20px; bottom: 40px;">
+		Need help?<br>
+		<%= image_tag('whatsapp-icon.png', size: 64) %>
+	</div>
+<% else %>
+	<div style="width: 100%; margin: 7rem auto 0; text-align: center;">
+		<%= image_tag('no-pending.png', size: 150) %>
+		<h4><b>BOO!</b></h4>
+		<h5><b>Nothing here, but me</b></h5>
+		<h6>You don't have any pending transactions.</h6>
+	</div>
 <% end %>

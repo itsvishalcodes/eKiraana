@@ -1,3 +1,36 @@
 // Place all the styles related to the cart controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
+.btn-center {
+	margin-top: 3rem;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.bill {
+	width: 80%;
+	margin: 2rem auto 0;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 1rem;
+}
+
+.delivery-cart {
+	margin-top: 2rem;
+}
+
+.place-order-btn {
+	position: fixed;
+	bottom: 0px;
+	left: 0;
+	width: 100% !important;
+	height: 3rem;
+	font-size: 1.2rem !important;
+	border-radius: 10px 10px 0 0 !important;
+}
+
+.cart-header {
+	font-family: 'Dosis', sans-serif;;
+}
