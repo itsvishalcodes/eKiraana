@@ -84,14 +84,19 @@
 
   <body>
     <header>
-          <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+          <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" style="float: left;">
             <div class="row">
-              <div class="col-xs-2 col-sm-2 col-md-2">
+              <div class="col-2 col-sm-2 col-md-2">
                 <button class="navbar-toggler" type="button" onclick="openNav()" style="border: none; float: left;" aria-controls="navbarSupportedContent">
                   <span class="navbar-toggler-icon" style="float: left;"></span>
                 </button>
               </div>
-
+              <div class="col-10 col-sm-10 col-md-10">
+                <div style="float: left;"> 
+                  <%= image_tag('logo-navbar.png', size: 35) %>
+                </div>
+              </div>
+              <br>
               <div class="container">
               <div class="navbar-collapse sidenav" id="mySidenav" style="float: left;">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
