@@ -10,15 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_055359) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 2020_06_25_102937) do
 
   create_table "allorders", force: :cascade do |t|
     t.integer "quantity"
-    t.bigint "product_id", null: false
-    t.bigint "customer_id", null: false
+    t.integer "product_id", null: false
+    t.integer "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_allorders_on_customer_id"
@@ -27,8 +24,8 @@ ActiveRecord::Schema.define(version: 2020_06_13_055359) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "quantity"
-    t.bigint "customer_id", null: false
-    t.bigint "product_id", null: false
+    t.integer "customer_id", null: false
+    t.integer "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_carts_on_customer_id"
@@ -39,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_055359) do
     t.string "name"
     t.string "phone"
     t.string "address"
-    t.bigint "customer_id", null: false
+    t.integer "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_customerpersonalinfos_on_customer_id"
@@ -54,10 +51,8 @@ ActiveRecord::Schema.define(version: 2020_06_13_055359) do
 
   create_table "dealerpersonalinfos", force: :cascade do |t|
     t.string "shopname"
-    t.integer "rating"
     t.integer "phone"
-    t.string "review"
-    t.bigint "dealer_id", null: false
+    t.integer "dealer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dealer_id"], name: "index_dealerpersonalinfos_on_dealer_id"
@@ -80,8 +75,8 @@ ActiveRecord::Schema.define(version: 2020_06_13_055359) do
   create_table "pendingorders", force: :cascade do |t|
     t.integer "quantity"
     t.string "confkey"
-    t.bigint "product_id", null: false
-    t.bigint "customer_id", null: false
+    t.integer "product_id", null: false
+    t.integer "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_pendingorders_on_customer_id"
@@ -93,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_055359) do
     t.float "price"
     t.text "tags"
     t.text "description"
-    t.bigint "dealer_id", null: false
+    t.integer "dealer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dealer_id"], name: "index_products_on_dealer_id"
