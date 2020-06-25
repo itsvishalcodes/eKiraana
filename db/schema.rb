@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_122225) do
+ActiveRecord::Schema.define(version: 2020_06_25_153046) do
 
   create_table "allorders", force: :cascade do |t|
     t.integer "quantity"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_06_25_122225) do
     t.integer "dealer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
     t.index ["dealer_id"], name: "index_products_on_dealer_id"
   end
 
