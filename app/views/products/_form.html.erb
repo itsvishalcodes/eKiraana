@@ -40,3 +40,22 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<% if false %>
+  <%= form_for(:products, url: products_path, class: 'form-inline my-2 my-lg-0', style: 'text-align: center;') do |form| %>
+  <div style="text-align: center; width: 100%;">
+    <%= text_field_tag :name, params[:name], placeholder: "Name", class: "form-control mr-sm-2" %><br/>
+    <div style="height: 5px;"></div>
+    <%= text_field_tag :price, params[:price], placeholder: "Price", class: "form-control mr-sm-2" %><br/>
+    <%= text_field_tag :tags, params[:tags], placeholder: "Tags", class: "form-control mr-sm-2" %><br/>
+    <%= text_field_tag :description, params[:description], placeholder: "Description", class: "form-control mr-sm-2" %><br/>
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+    <div class="input-group-btn" style="margin-bottom: 1rem;">  
+      <%= button_tag "Submit", :class => 'btn btn-info',:name => nil%>  
+    </div>  
+  </div>  
+  <% end %>
+<% end %>

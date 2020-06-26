@@ -26,6 +26,13 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    # @product = Product.new
+    # @product.name = params[:name]
+    # @product.price = params[:price]
+    # @product.tags = params[:tags]
+    # @product.description = params[:description]
+    # @product.image = params[:image]
+
     @product = current_dealer().products.build(product_params)
 
     respond_to do |format|
@@ -33,6 +40,7 @@ class ProductsController < ApplicationController
         format.html { redirect_to products_path, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
+        flash["notification"] = "Not saved"
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
