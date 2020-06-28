@@ -98,6 +98,20 @@
                 <div style="float: left;"> 
                   <%= image_tag('logo-navbar.png', size: 35) %>
                 </div>
+                <div style="float: right; ">
+                  <%= link_to cart_index_path do %>
+                    <i style="font-size: 27px; color: rgba(255,255,255,.5); margin: 6px 6px;" class="fa fa-shopping-cart"></i>
+                    <div style="position: absolute; height: 17px; width: 17px; top: 0px; right: 13px;">
+                       <div class="cart-navbar" style="font-size: 12px; text-align: center; background-color: #ef476f; border-radius: 50%;"> 
+                        <% if session[:customer_id] %>
+                          <%= Cart.where(customer_id: current_user.id).sum(:quantity) %>
+                        <% else %>
+                          0
+                        <% end %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
               </div>
               <br>
               <div class="container">
@@ -114,9 +128,11 @@
             <%= link_to cart_index_path do %>
               <i class="fa fa-shopping-basket"></i>
               <span>Cart</span>
-              <span id="cart-navbar" style="position: absolute; right: 18px; font-size: 22px; color: white; background-color: #ef476f; width: 2rem; height: 2rem; border-radius: 50%; text-align: center;">
+              <span class="cart-navbar" style="position: absolute; right: 18px; font-size: 22px; color: white; background-color: #ef476f; width: 2rem; height: 2rem; border-radius: 50%; text-align: center;">
                 <% if session[:customer_id] %>
-                  <%= Cart.where(customer_id: current_user.id).count %>
+                  <%= Cart.where(customer_id: current_user.id).sum(:quantity) %>
+                <% else %>
+                  0
                 <% end %>
               </span>
             <% end %>

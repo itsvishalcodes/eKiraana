@@ -1,2 +1,6 @@
 $('#quantityhomepage-<%= params[:id] %>').html("<%= j Cart.where(customer_id: current_user.id).find_by(product_id: params[:id]).quantity %>");
-$('#cart-navbar').html("<%= j Cart.where(customer_id: current_user.id).count %>")
+$('.cart-navbar').fadeOut(200);
+$('.cart-navbar').html("<%= j Cart.where(customer_id: current_user.id).sum(:quantity) %>");
+$('.cart-navbar').fadeIn(200);
+$('.cart-navbar').fadeOut(200);
+$('.cart-navbar').fadeIn(200);
