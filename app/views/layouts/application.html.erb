@@ -99,15 +99,17 @@
                   <%= image_tag('logo-navbar.png', size: 35) %>
                 </div>
                 <div style="float: right; ">
-                  <%= link_to cart_index_path do %>
+                  <%= link_to cart_index_path, :class => 'position-relative' do %>
                     <i style="font-size: 27px; color: rgba(255,255,255,.5); margin: 6px 6px;" class="fa fa-shopping-cart"></i>
-                    <div style="position: absolute; height: 17px; width: 17px; top: 0px; right: 13px;">
-                       <div class="cart-navbar" style="font-size: 12px; text-align: center; background-color: #ef476f; border-radius: 50%;"> 
-                        <% if session[:customer_id] %>
-                          <%= Cart.where(customer_id: current_user.id).sum(:quantity) %>
-                        <% else %>
-                          0
-                        <% end %>
+                    <div style="position: absolute; height: 17px; width: 17px; top: -12px; right: 0px;">
+                      <div style="background-color: #fff; border-radius: 50%; height: 17px; width: 17px; padding-top: 1px;">   
+                          <div class="cart-navbar" style="font-size: 10px; color: #fff; height: 15px; width: 15px; text-align: center; background-color: #ef476f; border-radius: 50%; margin: 0 auto 0;"> 
+                          <% if session[:customer_id] %>
+                            <%= Cart.where(customer_id: current_user.id).sum(:quantity) %>
+                          <% else %>
+                            0
+                          <% end %>
+                        </div>
                       </div>
                     </div>
                   <% end %>

@@ -61,6 +61,10 @@
   display: inline;
 }
 
+.position-relative {
+  position: relative;
+}
+
 .fa,
 .fas,
 .far,
