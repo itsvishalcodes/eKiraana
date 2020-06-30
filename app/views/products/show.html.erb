@@ -22,7 +22,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @product.image %>
+  <%= image_tag(@product.image.profile_size.url) %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

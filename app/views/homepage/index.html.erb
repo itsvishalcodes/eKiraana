@@ -1,17 +1,20 @@
 <% if @allproducts.count > 0 %>
 	<% @allproducts.each do |product| %>
 		<div class="product-box">
-				<div style="position: absolute; top: 20%; left: 10px;;">
+				<div style="float: left; height: 128px; width: 128px;">
+					<%= image_tag(product.image.profile_size.url, size: 120) %>
+				</div>
+				<div style="float: left; margin: 8px 0px 0px 8px;">
 					<b><%= product.name %></b>
-					<br>
-					<i>Seller: <%= product.dealer.dealerpersonalinfo.shopname %></i>
+					<br/>
+					<i><%= product.description %></i>
 					<br>
 					<div class="price">
-						<i class="fa fa-rupee-sign"></i>
+						<i class="fa fa-rupee-sign" style="font-weight: lighter;"></i>
 						<%= product.price %>
 					</div>
 				</div>
-			<div style="position: absolute; right: 8px; top: 45%; width: 3.6rem; height: 1.2rem;">
+			<div style="position: absolute; right: 8px; top: 85%; width: 3.6rem; height: 1.2rem;">
 				
 					<div style="width: 33.33%; display: inline; height: 1.2rem; width: 1.2rem;">
 						<span>	
