@@ -1,10 +1,11 @@
 <% if @allproducts.count > 0 %>
 	<% @allproducts.each do |product| %>
 		<div class="product-box">
-					<div style="float: left; height: 128px; width: 128px;">
+				<div class="row">	
+					<div class="col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2">
 						<%= image_tag(product.image.profile_size.url, size: 120) %>
 					</div>
-					<div class="product-box-info">
+					<div class="product-box-info col-7 col-sm-9 col-md-10 col-lg-10 col-xl-10">
 						<b><%= product.name %></b>
 						<br/>
 						<i><%= product.description %></i>
@@ -14,6 +15,7 @@
 							<%= product.price %>
 						</div>
 					</div>
+				</div>
 			<div style="position: absolute; right: 8px; top: 85%; width: 3.6rem; height: 1.2rem;">
 				
 					<div style="width: 33.33%; display: inline; height: 1.2rem; width: 1.2rem;">
