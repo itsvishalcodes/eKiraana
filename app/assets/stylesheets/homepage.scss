@@ -10,3 +10,11 @@
   font-weight: lighter;
   margin-top: 16px;
 }
+
+.product-box-info {
+	float: left;
+	margin: 8px 0px 0px 8px;
+	white-space: nowrap; 	
+	overflow: hidden;	
+	text-overflow: ellipsis; 
+}
