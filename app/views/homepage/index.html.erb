@@ -1,19 +1,19 @@
 <% if @allproducts.count > 0 %>
 	<% @allproducts.each do |product| %>
 		<div class="product-box">
-				<div style="float: left; height: 128px; width: 128px;">
-					<%= image_tag(product.image.profile_size.url, size: 120) %>
-				</div>
-				<div class="product-box-info" style="float: left; margin: 8px 0px 0px 8px;">
-					<b><%= product.name %></b>
-					<br/>
-					<i><%= product.description %></i>
-					<br>
-					<div class="price">
-						<i class="fa fa-rupee-sign" style="font-weight: lighter;"></i>
-						<%= product.price %>
+					<div style="float: left; height: 128px; width: 128px;">
+						<%= image_tag(product.image.profile_size.url, size: 120) %>
 					</div>
-				</div>
+					<div class="product-box-info">
+						<b><%= product.name %></b>
+						<br/>
+						<i><%= product.description %></i>
+						<br>
+						<div class="price">
+							<i class="fa fa-rupee-sign" style="font-weight: lighter;"></i>
+							<%= product.price %>
+						</div>
+					</div>
 			<div style="position: absolute; right: 8px; top: 85%; width: 3.6rem; height: 1.2rem;">
 				
 					<div style="width: 33.33%; display: inline; height: 1.2rem; width: 1.2rem;">
