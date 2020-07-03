@@ -190,7 +190,7 @@
                 <div class="input-group">  
                   <%= search_field_tag :search, params[:search], placeholder: "Search for products", class: "form-control" %>  
                   <div class="input-group-btn">  
-                    <%= button_tag "", :class => 'fa fa-search srch-btn btn btn-outline-success',:name => nil%>  
+                    <button type="submit" onClick="searchbtn();" class="fa fa-search srch-btn btn btn-outline-success"></button> 
                   </div>  
                 </div>  
               <% end %>
@@ -237,7 +237,11 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       
       <script>
-        
+        function searchbtn() {
+          $(".srch-btn").removeClass('fa-search');
+          $(".srch-btn").addClass('fa-sync fa-spin');
+        }
+
         function closealert() {
           document.getElementById('alerts').style.display = 'none';
         }
@@ -254,6 +258,8 @@
             $(".content").fadeIn(1000);        
           });
         });
+
+
       </script>
 
   </body>
