@@ -44,6 +44,16 @@
 						<% end %>
 					</div>
 				
+					<script type="text/javascript">
+						$(".addtocartbtn").click(function(){
+					  		$('#quantityhomepage-<%= product.id %>').html("");
+					  		$('#quantityhomepage-<%= product.id %>').addClass('fa fa-sync fa-spin');
+						});
+						$(".subtfromcartbtn").click(function(){
+					  		$('#quantityhomepage-<%= product.id %>').html("");
+					  		$('#quantityhomepage-<%= product.id %>').addClass('fa fa-sync fa-spin');
+						});
+					</script>
 			</div>
 			
 		</div>
@@ -58,7 +68,7 @@
 <% end %>
 
 <script type="text/javascript">
-	$(".addtocartbtn").click(function(){
+	function addtocart(let id){
   		$('.qtyspan').html("");
   		$('.qtyspan').addClass('fa fa-sync fa-spin');
 	});
