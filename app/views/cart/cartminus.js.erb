@@ -1,3 +1,4 @@
+$('.qtyspan').removeClass("fa fa-sync fa-spin");
 $('#quantityhomepage-<%= params[:id] %>').html("<%= j @productquan %>");
 $('.cart-navbar').fadeOut(200);
 $('.cart-navbar').html("<%= j Cart.where(customer_id: current_user.id).sum(:quantity) %>");

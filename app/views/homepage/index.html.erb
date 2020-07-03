@@ -20,13 +20,13 @@
 				
 					<div style="width: 33.33%; display: inline; height: 1.2rem; width: 1.2rem;">
 						<span>	
-							<%= link_to crtminus_path(product.id), method: :post, remote: true do %>
+							<%= link_to crtminus_path(product.id), method: :post, remote: true, :class => 'subtfromcartbtn' do %>
 								<i class="fa fa-minus-square" style="font-size: 1.2rem;"></i>
 							<% end %>
 						</span>
 					</div>
 					<div style="width: 33.33%; display: inline;">
-						<span id="quantityhomepage-<%= product.id %>" >
+						<span class="qtyspan" id="quantityhomepage-<%= product.id %>" >
 							<% if session[:customer_id] %>
 								<% if Cart.where(customer_id: current_user.id).exists?(:product_id => product.id) %>
 									<%= Cart.where(customer_id: current_user.id).find_by(product_id: product.id).quantity %>
@@ -57,3 +57,13 @@
 	</div>
 <% end %>
 
+<script type="text/javascript">
+	$(".addtocartbtn").click(function(){
+  		$('.qtyspan').html("");
+  		$('.qtyspan').addClass('fa fa-sync fa-spin');
+	});
+	$(".removefromcartbtn").click(function(){
+  		$('.qtyspan').html("");
+  		$('.qtyspan').addClass('fa fa-sync fa-spin');
+	});
+</script>
