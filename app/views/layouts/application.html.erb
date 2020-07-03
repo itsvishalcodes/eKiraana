@@ -190,7 +190,7 @@
                 <div class="input-group">  
                   <%= search_field_tag :search, params[:search], placeholder: "Search for products", class: "form-control" %>  
                   <div class="input-group-btn">  
-                    <button type="submit" onClick="searchbtn();" class="fa fa-search srch-btn btn btn-outline-success"></button> 
+                    <button type="submit" style="height: 2.35rem;" onClick="searchbtn();" class=" searchbtn btn"><span class="fa fa-search"></span></button> 
                   </div>  
                 </div>  
               <% end %>
@@ -238,8 +238,8 @@
       
       <script>
         function searchbtn() {
-          $(".srch-btn").removeClass('fa-search');
-          $(".srch-btn").addClass('fa-sync fa-spin');
+          $(".fa-search").removeClass('fa-search');
+          $(".searchbtn").append('<span class="fa fa-sync fa-spin"></span>');
         }
 
         function closealert() {
