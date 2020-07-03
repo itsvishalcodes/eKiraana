@@ -1,5 +1,5 @@
 <% if @allpo.count > 0 %>	
-	<h3>Pending Transactions</h3><hr>
+	<h5 class="heading">Pending Transactions</h5><hr>
 	<% @allpo.each do |key, value| %>
 		Conf. Key: <%= key %>
 		<br>
@@ -11,10 +11,12 @@
 		<br>
 		<hr>
 	<% end %>
-	<div style="position: fixed; right: 20px; bottom: 40px;">
-		Need help?<br>
-		<%= image_tag('whatsapp-icon.png', size: 64) %>
-	</div>
+	<a href="https://wa.me/919057686840/">
+		<div style="position: fixed; right: 20px; bottom: 40px;">
+			Need help?<br>
+			<%= image_tag('whatsapp-icon.png', size: 64) %>
+		</div>
+	</a>
 <% else %>
 	<div style="width: 100%; margin: 7rem auto 0; text-align: center;">
 		<%= image_tag('no-pending.png', size: 150) %>
