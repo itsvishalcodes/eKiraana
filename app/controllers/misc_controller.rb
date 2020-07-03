@@ -51,7 +51,7 @@ class MiscController < ApplicationController
 		current_user.customerpersonalinfo.update!(:name => params[:name])
 		current_user.customerpersonalinfo.update!(:phone => params[:phone])
 		current_user.customerpersonalinfo.update!(:address => params[:address])
-		flash['Notification'] = 'Personal Info updates'
+		flash['Notification'] = 'Personal Info updated'
 		redirect_to home_page_path
 	end
 

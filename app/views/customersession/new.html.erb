@@ -15,7 +15,9 @@
 		      <%= password_field_tag :password, params[:password], placeholder: "Password", class: "form-control mr-sm-2" %><br/>
 		      <div style="height: 5px;"></div> 
 		      <div class="input-group-btn" style="margin-bottom: 1rem;">  
-		        <%= button_tag "Submit", :class => 'btn btn-info',:name => nil%>  
+		        <button onClick="logging();" type="submit" class="btn btn-info log-btn">
+		        	Submit
+		    	</button>  
 	     	  </div>  
 	    	</div>  
 
@@ -30,3 +32,9 @@
 </div>
 <div class="space-1"></div>
 <div class="space-1"></div>
+
+<script type="text/javascript">
+	function logging() {
+		$( ".log-btn" ).append( "<i class='fa fa-sync fa-spin'></i>" );
+	}
+</script>
