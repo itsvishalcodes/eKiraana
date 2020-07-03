@@ -16,16 +16,16 @@
 						</div>
 					</div>
 				</div>
-			<div style="position: absolute; right: 8px; top: 85%; width: 3.6rem; height: 1.2rem;">
+			<div style="position: absolute; right: 8px; top: 85%; width: 4rem; height: 1.2rem;">
 				
-					<div style="width: 33.33%; display: inline; height: 1.2rem; width: 1.2rem;">
+					<div style="width: 30%; display: inline; height: 1.2rem; width: 1.2rem;">
 						<span>	
 							<%= link_to crtminus_path(product.id), method: :post, remote: true, :class => 'subtfromcartbtn' do %>
 								<i class="fa fa-minus-square" style="font-size: 1.2rem;"></i>
 							<% end %>
 						</span>
 					</div>
-					<div style="width: 33.33%; display: inline;">
+					<div style="width: 40%; display: inline; margin-left: 0.2rem;">
 						<span class="qtyspan" id="quantityhomepage-<%= product.id %>" >
 							<% if session[:customer_id] %>
 								<% if Cart.where(customer_id: current_user.id).exists?(:product_id => product.id) %>
@@ -38,7 +38,7 @@
 							<% end %>
 						</span>
 					</div>
-					<div style="width: 33.33%; display: inline;">
+					<div style="width: 30%; display: inline;">
 						<%= link_to  cart_path(product.id), method: :patch, :remote => true, :class => "addtocartbtn" do %>
 							<i class="fa fa-plus-square" style="font-size: 1.2rem; margin-right: 5px;"></i>
 						<% end %>
@@ -62,7 +62,7 @@
   		$('.qtyspan').html("");
   		$('.qtyspan').addClass('fa fa-sync fa-spin');
 	});
-	$(".removefromcartbtn").click(function(){
+	$(".subtfromcartbtn").click(function(){
   		$('.qtyspan').html("");
   		$('.qtyspan').addClass('fa fa-sync fa-spin');
 	});
