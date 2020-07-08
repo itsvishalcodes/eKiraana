@@ -5,6 +5,7 @@ class CheckoutController < ApplicationController
 	def index
 		@allpending = Pendingorder.where(customer_id: current_user.id)
 	end
+
 	def create
 		@@randomstr = (0...8).map { ('a'..'z').to_a[rand(26)] }.join
 		while(Pendingorder.exists?(:confkey => @@randomstr))
@@ -22,6 +23,12 @@ class CheckoutController < ApplicationController
 		current_user.cart.destroy_all
 		flash['Notification'] = "Thankyou for Shopping with us... Your order will reach you within 30 minutes! \n :)"
 		redirect_to root_path
+	end
+
+	def destroy
+		@todestroy = Pendingorder.where(confkey: params[:conf])
+		@todestroy.destroy_all
+		redirect_to pending_order_user_path
 	end
 
 	protected

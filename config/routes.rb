@@ -21,7 +21,8 @@ Rails.application.routes.draw do
 	resources :dealerpersonalinfos
 	resources :products
 	resources :cart
-	resources :checkout
+	resources :checkout, only: [:index, :create]
+	delete '/cancelorder/:conf' => 'checkout#destroy', :as => 'cancel_order'
 	resources :delaerdelivery
 	get '/confdel' => 'delaerdelivery#conf', :as => 'conf_del'
 	get '/search' => 'pages#search', :as => 'search_page'

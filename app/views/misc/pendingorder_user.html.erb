@@ -1,15 +1,26 @@
 <% if @allpo.count > 0 %>	
 	<h5 class="heading">Pending Transactions</h5><hr>
 	<% @allpo.each do |key, value| %>
-		Conf. Key: <%= key %>
-		<br>
-		Total Products: <%= value %>
-		<br>
-		Ordered: <%= time_ago_in_words(Pendingorder.where(customer_id: current_user.id).where(confkey: key)[0].created_at) %> ago
-		<br>
-		<%= link_to 'Show', pending_order_userbc_path(key) %>
-		<br>
-		<hr>
+		<% if false %>
+			Conf. Key: <%= key %>
+			<br>
+			Total Products: <%= value %>
+			<br>
+			Ordered: <%= time_ago_in_words(Pendingorder.find_by(confkey: key).created_at) %> ago
+			<br>
+			<%= link_to 'Show', pending_order_userbc_path(key) %>
+			<br>
+			<% if ((Time.now - Pendingorder.find_by(confkey: key).created_at)/60) < 10 %>
+				<%= link_to 'Cancel Order', cancel_order_path(key), method: :delete, data: { confirm: 'Are you sure?' } %>
+			<% end %>
+			<hr>
+		<% end %>
+		<div class="pendings-productbox">
+			<div class="pendings-absolute pendings-confkey"><span class="fa fa-lock" style="margin-right: 4px;"></span><%= key %></div>
+			<div class="pendings-absolute pendings-totalproducts"></div>
+			<div class="pendings-absolute pendings-timeago"><span class="fa fa-clock" style="margin-right: 4px;"></span><%= time_ago_in_words(Pendingorder.find_by(confkey: key).created_at) %> ago</div>
+			<hr>
+		</div>
 	<% end %>
 	<a href="https://wa.me/919057686840/">
 		<div style="position: fixed; right: 20px; bottom: 40px;">
