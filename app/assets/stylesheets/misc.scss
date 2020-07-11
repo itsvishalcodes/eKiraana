@@ -8,15 +8,45 @@
 }
 
 .pendings-productbox {
-	position: relative;
-	min-height: 40px;
+	// position: relative;
+	// min-height: 150px;
 }
 
 .pendings-absolute {
-	position: absolute;
+	// position: absolute;
 }
 
-.pendings-confkey {
-	top: 8px;
-	right: 8px;
+.pendings-confkey, .pendings-timeago {
+// 	top: 8px;
+// 	right: 8px;
+	float: right;
+}
+
+.pentrans-btn {
+	margin: 8px;
+}
+
+.btn-danger {
+	background-color: red;
+}
+
+.font-white {
+	color: white;
+}
+
+.whatsapp-help {
+	width: 8rem;
+	height: 56px;
+	position: fixed;
+	right: 20px;
+	bottom: 40px;
+	margin-right: -1.3rem;
+	background-color: #49A666;
+	border-radius: 28px 0 0 28px;
+}
+
+.whatsapp-icon-class {
+	float: right;
+	margin-top: 4px;
+	margin-right: 8px;
 }

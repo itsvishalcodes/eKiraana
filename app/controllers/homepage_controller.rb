@@ -8,7 +8,8 @@ class HomepageController < ApplicationController
   	else
   		@parameter = params[:search].downcase
   		@allproducts = Product.all.where("lower(tags) LIKE :search", search: "%#{@parameter}%")
-  	end
+      # @allproducts = Dealerpersonalinfo.where(pincode: current_user.pincode).products.where("lower(tags) LIKE :search", search: "%#{@parameter}%")
+    end
   end
 
   def indexws

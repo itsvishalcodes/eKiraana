@@ -1,31 +1,32 @@
 <% if @allpo.count > 0 %>	
 	<h5 class="heading">Pending Transactions</h5><hr>
 	<% @allpo.each do |key, value| %>
-		<% if false %>
-			Conf. Key: <%= key %>
-			<br>
-			Total Products: <%= value %>
-			<br>
-			Ordered: <%= time_ago_in_words(Pendingorder.find_by(confkey: key).created_at) %> ago
-			<br>
-			<%= link_to 'Show', pending_order_userbc_path(key) %>
-			<br>
-			<% if ((Time.now - Pendingorder.find_by(confkey: key).created_at)/60) < 10 %>
-				<%= link_to 'Cancel Order', cancel_order_path(key), method: :delete, data: { confirm: 'Are you sure?' } %>
-			<% end %>
-			<hr>
-		<% end %>
 		<div class="pendings-productbox">
-			<div class="pendings-absolute pendings-confkey"><span class="fa fa-lock" style="margin-right: 4px;"></span><%= key %></div>
-			<div class="pendings-absolute pendings-totalproducts"></div>
 			<div class="pendings-absolute pendings-timeago"><span class="fa fa-clock" style="margin-right: 4px;"></span><%= time_ago_in_words(Pendingorder.find_by(confkey: key).created_at) %> ago</div>
+			<br>
+			<div class="divkeyshow pendings-confkey" onclick="showconfkey();"><span class="fa fa-key" style="margin-right: 4px;"></span>********</div>
+			<div class="divkeyhide pendings-confkey" onclick="hideconfkey();"><span class="fa fa-lock" style="margin-right: 4px;"></span><%= key %></div>
+			<div class="pendings-absolute pendings-totalproducts"><span class="fa fa-hand-holding-box"></span>Total <%= value %> Products</div>
+			<br>
+			<div class="pentrans-btn btn btn-primary float-left">
+				<span class="fa fa-info-circle"></span>
+				<%= link_to 'Show Details', pending_order_userbc_path(key), :class => 'font-white' %>
+			</div>
+			<% if ((Time.now - Pendingorder.find_by(confkey: key).created_at)/60) < 30 %>
+				<div class="pentrans-btn btn btn-danger float-left">	
+					<span class="fa fa-trash-alt"></span>
+					<%= link_to 'Cancel Order', cancel_order_path(key), :class => 'font-white', method: :delete, data: { confirm: 'Are you sure to cancel your order? :(' } %>
+				</div>
+			<% end %>
+			<br>
+			<br>
 			<hr>
 		</div>
 	<% end %>
 	<a href="https://wa.me/919057686840/">
-		<div style="position: fixed; right: 20px; bottom: 40px;">
-			Need help?<br>
-			<%= image_tag('whatsapp-icon.png', size: 64) %>
+		<div class="whatsapp-help font-white"> 
+			<%= image_tag('whatsapp-icon.png', size: 40, :class => 'whatsapp-icon-class') %>
+			<span class="whatsapp-icon-class">Need <br> help?</span>
 		</div>
 	</a>
 <% else %>
@@ -36,3 +37,17 @@
 		<h6>You don't have any pending transactions.</h6>
 	</div>
 <% end %>
+
+<script type="text/javascript">
+	$(function() {
+		$('.divkeyhide').css('display','none');
+	})
+	function showconfkey() {
+		$('.divkeyhide').css('display','block');
+		$('.divkeyshow').css('display','none');
+	}
+	function hideconfkey() {
+		$('.divkeyhide').css('display','none');
+		$('.divkeyshow').css('display','block');
+	}
+</script>

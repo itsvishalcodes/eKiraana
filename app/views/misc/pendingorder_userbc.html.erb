@@ -2,6 +2,12 @@ Conf. Key => <%= @key %>
 <br>
 <% @pendingsbc.each do |products| %>
 	<br>
-	<%= products.product.name %>
+	<div class="float-left" style="width: 20px; height: 20px;">
+		<%= image_tag(products.product.image.tiny.url) %>
+	</div>
+	<div class="float-left" style="margin-left: 8px;">
+		<%= products.product.name %>
+		(x<%= products.quantity %>)
+	</div>
 	<%  %>
 <% end %>	

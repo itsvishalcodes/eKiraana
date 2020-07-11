@@ -1,8 +1,17 @@
 <h4 class="heading">Your Orders</h4>
 <hr>
-<% @allo.each do |o| %>
-	Product: <%= o.product.name %>
-	<br>
-	Quantity: <%= o.quantity %>
-	<br>
+<% if @allo.count > 0 %>
+	<% @allo.each do |o| %>
+		Product: <%= o.product.name %>
+		<br>
+		Quantity: <%= o.quantity %>
+		<br>
+	<% end %>
+<% else %>
+	<div style="width: 100%; margin: 5rem auto 0; text-align: center;">
+		<%= image_tag('no-pending.png', size: 150) %>
+		<h4><b>BOO!</b></h4>
+		<h5><b>Nothing here, but me</b></h5>
+		<h6>You haven't placed any Orders.</h6>
+	</div>
 <% end %>

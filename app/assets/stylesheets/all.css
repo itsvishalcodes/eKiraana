@@ -8,7 +8,7 @@
     height: 100px;
     margin: 8rem auto 0;
 }
-.btn {
+.btn-primary {
   background-color: #ef476f !important;
   border-color: #ef476f !important;
 }
@@ -22,10 +22,10 @@
 }
 
 .srch-btn {
-  height: 2.4rem;
-  border-radius: 0 4px 4px 0 !important;
-  background-color: transparent !important;
-  border-color: green !important; 
+  margin-top: -1px;
+  height: 2.49rem;
+  width: 44px;
+  border-radius: 0 8px 8px 0 !important;
 }
 
 .addtocartbtn {
