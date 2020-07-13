@@ -14,7 +14,7 @@ class MiscController < ApplicationController
 	end
 	
 	def allorder_user
-		@allo = Allorder.where(customer_id: current_user.id)
+		@allo = Allorder.where(customer_id: current_user.id).group(:created_at).count
 	end
 
 	def delboypendings

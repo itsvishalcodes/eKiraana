@@ -1,11 +1,21 @@
 <h4 class="heading">Your Orders</h4>
 <hr>
 <% if @allo.count > 0 %>
-	<% @allo.each do |o| %>
-		Product: <%= o.product.name %>
-		<br>
-		Quantity: <%= o.quantity %>
-		<br>
+	<% @allo.each do |key, value| %>
+	<hr>
+		<b>Ordered on: <%= key %></b>
+		<hr>
+		<% @ordersbydate = Allorder.where(created_at: key) %>
+		<% @ordersbydate.each do |productordered| %>
+			<div class="float-left" style="width: 20px; height: 20px;">
+				<%= image_tag(productordered.product.image.tiny.url) %>
+			</div>
+			<div class="float-left" style="margin-left: 8px;">	
+				<%= productordered.product.name %>
+				(x<%= productordered.quantity %>)
+			</div>
+			<br>
+		<% end %>
 	<% end %>
 <% else %>
 	<div style="width: 100%; margin: 5rem auto 0; text-align: center;">
