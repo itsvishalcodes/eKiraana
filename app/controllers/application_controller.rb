@@ -4,8 +4,15 @@ class ApplicationController < ActionController::Base
 	before_action :ensure_login_user
 	before_action :ensure_login_dealer
 	before_action :ensure_login_delboy
-	helper_method :logged_in?, :logged_in_dealer?, :current_user, :current_dealer
+	helper_method :logged_in?, :logged_in_dealer?, :current_user, :current_dealer, :cart_count
 
+	def cart_count
+		if session[:customer_id]
+			Cart.where(customer_id: current_user.id).sum(:quantity)
+		else
+			0
+		end
+	end
 
 	protected
 	def ensure_login_user
@@ -35,4 +42,5 @@ class ApplicationController < ActionController::Base
 	def current_dealer
 		@current_dealer ||= Dealer.find(session[:dealer_id])
 	end
+
 end
