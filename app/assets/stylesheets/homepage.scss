@@ -16,3 +16,30 @@
 	overflow: hidden;	
 	text-overflow: ellipsis; 
 }
+
+.servicableornot {
+	background-color: #ff9900;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  width: 100%;
+}
+
+.servicable {
+  background-color: #28a745;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 20px;
+  color: white;
+  width: 100%;
+}
+
+.notservicable {
+  background-color: #dc3545;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 20px;
+  color: white;
+  width: 100%;
+}

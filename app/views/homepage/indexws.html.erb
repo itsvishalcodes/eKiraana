@@ -13,6 +13,26 @@
 			<%= image_tag('delivery-bike-logo.png', size: 100) %>
 		</div>
 	</div>
+<% else %>
+	<div class="servicableornot">
+		We can't check if we are servicable in your region. Please log in to get products according to your location.<br><br>
+		<%= form_for(:homepage, url: check_servicable_path, :remote => true, class: 'availability-check-form form-inline my-2 my-lg-0', style: 'text-align: center;') do |form| %>
+				<div class="float-left" style="width: 75%;">
+		      		<%= phone_field_tag :pincode, params[:pincode], placeholder: "Enter your area pincode", class: "form-control mr-sm-2" %>
+		      	</div>
+		      	<div class="input-group-btn float-left" style="margin-bottom: 1rem; width: 25%;">  
+		        	<button onClick="checking();" type="submit" class="btn btn-info check-btn">
+		        		Check
+		    		</button>  
+	     	  	</div>
+  		<% end %>
+	</div>
+  	<div class="servicable">
+  		We are available in your region. 😍 Log in and place your first order.
+  	</div>
+  	<div class="notservicable">
+  		We are currently not available in your region. 😔 We are expanding fast and hoping to reach maximum people as soon as possible.
+  	</div>
 <% end %>
 <br>
 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
@@ -115,3 +135,12 @@
 		</a>
 	</div>
 </div>
+
+<script>
+	$(".servicable").hide();
+	$(".notservicable").hide();
+	function checking() {
+		$(".check-btn").html('Check<span class="fa fa-sync fa-spin"></span>');
+		// $(".check-btn").append('<span class="fa fa-sync fa-spin"></span>');
+	}
+</script>

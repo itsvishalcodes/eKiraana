@@ -1,0 +1,6 @@
+$(".servicableornot").hide('fast', 'swing');
+<% if @result %>
+	$(".servicable").show('fast', 'swing');
+<% else %>
+	$(".notservicable").show('fast', 'swing');
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_11_060312) do
+ActiveRecord::Schema.define(version: 2020_07_14_050750) do
 
   create_table "allorders", force: :cascade do |t|
     t.integer "quantity"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_07_11_060312) do
     t.integer "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "pincode"
     t.index ["customer_id"], name: "index_customerpersonalinfos_on_customer_id"
   end
 
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_07_11_060312) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "pincode"
   end
 
   create_table "dealerpersonalinfos", force: :cascade do |t|
@@ -55,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_07_11_060312) do
     t.integer "dealer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "pincode"
     t.index ["dealer_id"], name: "index_dealerpersonalinfos_on_dealer_id"
   end
 
@@ -63,6 +66,7 @@ ActiveRecord::Schema.define(version: 2020_07_11_060312) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "pincode"
   end
 
   create_table "delboys", force: :cascade do |t|

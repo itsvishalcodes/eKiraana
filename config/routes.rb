@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 	get '/home' => 'homepage#indexws', :as => 'homepagews'
 	get '/editaddressform' => 'misc#editaddress_form', :as => 'editadd'
 	post '/updateaddress' => 'misc#editaddress', :as => 'editaddpost' 
+	post '/checkaval' => 'homepage#checkaval', :as => 'check_servicable'
 
 	root to: "homepage#index"
 

@@ -1,3 +1,4 @@
+
 <% if @allproducts.count > 0 %>
 	<% @allproducts.each do |product| %>
 		<div class="product-box">
@@ -27,7 +28,7 @@
 					</div>
 					<div style="text-align: center;" class="col-6 col-sm-6 col-md-6 no-padding">
 						<span id="quantityhomepage-<%= product.id %>" >
-							<% if session[:customer_id] %>
+							<% if logged_in? %>
 								<% if Cart.where(customer_id: current_user.id).exists?(:product_id => product.id) %>
 									<%= Cart.where(customer_id: current_user.id).find_by(product_id: product.id).quantity %>
 								<% else %>

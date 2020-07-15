@@ -7,11 +7,26 @@ class HomepageController < ApplicationController
   		redirect_to homepagews_path
   	else
   		@parameter = params[:search].downcase
-  		@allproducts = Product.all.where("lower(tags) LIKE :search", search: "%#{@parameter}%")
-      # @allproducts = Dealerpersonalinfo.where(pincode: current_user.pincode).products.where("lower(tags) LIKE :search", search: "%#{@parameter}%")
+  		# @allproducts = Product.all.where("lower(tags) LIKE :search", search: "%#{@parameter}%")
+      if logged_in?  
+        @allproducts = Dealerpersonalinfo.find_by(pincode: current_user.customerpersonalinfo.pincode).dealer.products.where("lower(tags) LIKE :search", search: "%#{@parameter}%")
+      else 
+        @allproducts = Product.all.where("lower(tags) LIKE :search", search: "%#{@parameter}%")
+      end
     end
   end
 
   def indexws
+  end
+
+  def checkaval
+    @result = false
+    @pincode = params[:pincode]
+    if Dealerpersonalinfo.find_by(pincode: @pincode)
+      @result = true
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 end
