@@ -1,3 +1,4 @@
+<div class="container" style="margin-top: 130px;">
 <h1>Pending Delivery for <%= Customer.find(@key).customerpersonalinfo.name %></h1>
 <div>
 	Enter Conf. Key got from user:
@@ -20,4 +21,5 @@
 	Price: <%= Product.find(ptdbc.product_id).price*ptdbc.quantity %>
 	<hr/>
 <% end %>
+</div>
 </div>

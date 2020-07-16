@@ -1,3 +1,4 @@
+<div class="container" style="margin-top: 130px;">
 <%= form_with(model: dealerpersonalinfo, local: true) do |form| %>
   <% if dealerpersonalinfo.errors.any? %>
     <div id="error_explanation">
@@ -22,8 +23,13 @@
     <%= form.text_field :phone %>
   </div>
 
+  <div class="field">
+    <%= form.label :pincode %>
+    <%= form.phone_field :pincode %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>

@@ -2,6 +2,13 @@
  * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
+footer {
+  bottom: 0;
+  background-color: #212529 !important;
+  color: white;
+  padding: 15px;
+}
+
 .content {display:none;}
 .preload { 
     width:100px;

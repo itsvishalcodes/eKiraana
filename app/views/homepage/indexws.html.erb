@@ -1,3 +1,4 @@
+<div class="container" style="margin-top: 130px;">
 <% if session[:customer_id] %>	
 	<div class="row homepage-top-block" style="min-height: 100px;">
 		<div class="col-7 col-sm-7 col-md-7">
@@ -38,15 +39,15 @@
 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-interval="3000">
-    	<a href="/homepage?search=bajaj almond drops" class="element-inline">
+    	<a href="/homepage?search=bajaj almond drops" class="element-inline"></a>
       <%= image_tag('carousel/caro1.jpg', class: 'carousel-imgs') %>
     </div>
     <div class="carousel-item" data-interval="3000">
-    	<a href="/homepage?search=tata sampann" class="element-inline">
+    	<a href="/homepage?search=tata sampann" class="element-inline"></a>
       <%= image_tag('carousel/caro2.jpg', class: 'carousel-imgs') %>
     </div>
     <div class="carousel-item" data-interval="3000">
-    	<a href="/homepage?search=quick-food" class="element-inline">
+    	<a href="/homepage?search=quick-food" class="element-inline"></a>
       <%= image_tag('carousel/caro3.jpg', class: 'carousel-imgs') %>
     </div>
   </div>
@@ -135,6 +136,23 @@
 		</a>
 	</div>
 </div>
+</div>
+ <footer>
+ <div class="row">
+  <div class = "col-6 col-sm-6 col-md-6">
+    <b><u>Contact Us</u></b><br>
+    <div class="product-box-info">  
+       complaint@ekiraana.store
+    </div>
+      9057686840
+    </div>
+    <div class = "col-6 col-sm-6 col-md-6">
+      <b><u>Address</u></b><br>
+      In front of GM Academy School, <br>
+      Salempur, Uttar Pradesh - 274509
+    </div>
+  </div>
+</footer>
 
 <script>
 	$(".servicable").hide();

@@ -1,3 +1,4 @@
+<div class="container" style="margin-top: 130px;">
 <h1>Pending Delivery for <%= Customer.find_by(id: @customer).customerpersonalinfo.name %></h1>
 <div>
 	Enter Conf. Key got from user:
@@ -22,5 +23,6 @@
 <div style="height: 200px;"></div>
 <div>
 	Total : <%= @price %>
+</div>
 </div>
 </div>

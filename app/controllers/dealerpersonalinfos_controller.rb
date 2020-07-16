@@ -72,6 +72,6 @@ class DealerpersonalinfosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dealerpersonalinfo_params
-      params.require(:dealerpersonalinfo).permit(:shopname, :phone)
+      params.require(:dealerpersonalinfo).permit(:shopname, :phone, :pincode)
     end
 end
