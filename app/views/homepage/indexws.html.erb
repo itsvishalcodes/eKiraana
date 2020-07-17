@@ -5,12 +5,12 @@
 			<b>Delivering to: </b><br>
 			<%= current_user.customerpersonalinfo.address %><br>
 		</div>
-		<div class="col-1 col-sm-1 col-md-1" style="margin-top: 1.4rem;">
-			<%= link_to editadd_path, class: 'btn btn-outline-primary btn-sm' do %>
+		<%= link_to editadd_path, class: 'col-2 col-sm-2 col-md-2' do %>
+			<div class="btn btn-outline-primary btn-sm" style="margin-top: 1.4rem;">
 				<span class="fa fa-pen"></span>
-			<% end %>
-		</div>
-		<div class="col-4 col-sm-4 col-md-4">
+			</div>
+		<% end %>
+		<div class="col-3 col-sm-3 col-md-3" style="overflow: hidden; padding: 0;">
 			<%= image_tag('delivery-bike-logo.png', size: 100) %>
 		</div>
 	</div>
@@ -60,6 +60,8 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+
 <div class="space-1"></div>
 <div class="space-1"></div>
 <h4> Snacks </h4>
