@@ -52,12 +52,15 @@
 		<hr>
 		<script type="text/javascript">
 			$("#addtocartbtn-<%= product.id %>").click(function(){
-				$('#quantityhomepage-<%= product.id %>').html("");
-				$('#quantityhomepage-<%= product.id %>').addClass('fa fa-sync fa-spin');
+				let newquan = parseInt($('#quantityhomepage-<%= product.id %>').html()) + 1;
+				$('#quantityhomepage-<%= product.id %>').html(newquan);
 			});
 			$("#subtfromcartbtn-<%= product.id %>").click(function(){
-				$('#quantityhomepage-<%= product.id %>').html("");
-				$('#quantityhomepage-<%= product.id %>').addClass('fa fa-sync fa-spin');
+				let newquan = 0;
+				if(parseInt($('#quantityhomepage-<%= product.id %>').html())!=0) {
+					newquan = parseInt($('#quantityhomepage-<%= product.id %>').html()) - 1;
+				}
+				$('#quantityhomepage-<%= product.id %>').html(newquan);
 			});
 		</script>
 	<% end %>

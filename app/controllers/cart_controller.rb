@@ -31,6 +31,8 @@ class CartController < ApplicationController
 		if current_user.cart.find_by(product_id: @carttodel.product_id).quantity == 1
 			@carttodel.destroy
 			@productquan = 0
+		elsif current_user.cart.find_by(product_id: @carttodel.product_id).quantity == nil
+			# do nothing
 		else
 			current_user.cart.find_by(product_id: @carttodel.product_id).update!(:quantity => current_user.cart.find_by(product_id: @carttodel.product_id).quantity-1)
 			@productquan = current_user.cart.find_by(product_id: params[:id]).quantity
